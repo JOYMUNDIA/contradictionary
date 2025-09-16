@@ -94,6 +94,14 @@ body, html {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
 }
 
+.food-hero-search-input-container{
+  background: linear-gradient(to bottom, rgb(216, 194, 171), rgb(235, 237, 232));
+}
+
+.meds-hero-search-input-container{
+  background: linear-gradient(to bottom, rgb(250, 229, 182), rgb(200, 186, 173));
+}
+
 .HeroSearchInputContainer .input {
   width: 97%;
   height: 70%;
@@ -232,7 +240,9 @@ body, html {
     -webkit-background-clip: text;
     background-clip: text;
     transition: transform 250ms ease;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     will-change: transform;
     text-shadow: rgba(0, 0, 0, 0.1) 0 0 0.1em;
     -webkit-user-select: none; 
@@ -249,6 +259,12 @@ body, html {
     transform: scale(0.975);
 }
 
+.hero-button-section .emoji {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    color: initial !important;
+}
 
 
 /* Responsive */
