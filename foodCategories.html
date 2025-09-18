@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Food Categories with Buttons</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .card-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      padding: 1rem;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: rgba(230, 230, 230, 1);
+      color: #000;
+      border-radius: 15px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .emoji {
+      font-size: 4rem;
+      text-align: center;
+      padding: 1rem 0;
+      background-color: #f7f7f7;
+    }
+
+    .card-content {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-content h1 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .card-content ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .card-content ul li {
+      background-color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: default;
+    }
+
+    .card-content ul li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    .card button {
+      margin: 1rem;
+      padding: 0.6rem 1rem;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .card button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="card-row">
+
+    <div class="card">
+      <div class="emoji">🍇</div>
+      <div class="card-content">
+        <h1>Fruits</h1>
+        <ul>
+          <li>Cranberries</li>
+          <li>Papaya</li>
+          <li>Grapes</li>
+        </ul>
+      </div>
+      <button>View Drug Indications</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🥕</div>
+      <div class="card-content">
+        <h1>Vegetables</h1>
+        <ul>
+          <li>Carrots</li>
+        </ul>
+      </div>
+      <button>View Drug Indications</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🧀</div>
+      <div class="card-content">
+        <h1>Dairy</h1>
+        <ul>
+          <li>Yoghurt</li>
+          <li>Cheddar Cheese</li>
+        </ul>
+      </div>
+      <button>View Drug Indications</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🍪</div>
+      <div class="card-content">
+        <h1>Treats/Snacks</h1>
+        <ul>
+          <li>Chocolate Chip Cookies</li>
+          <li>Muffin</li>
+        </ul>
+      </div>
+      <button>View Drug Indications</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🥩</div>
+      <div class="card-content">
+        <h1>Red Meats</h1>
+        <ul>
+          <li>Beef</li>
+          <li>Pork</li>
+        </ul>
+      </div>
+      <button>View Drug Indications</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🍗</div>
+      <div class="card-content">
+        <h1>White Meats</h1>
+        <ul>
+          <li>Fish</li>
+          <li>Chicken</li>
+        </ul>
+      </div>
+      <button>View Drug Indications</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🥚</div>
+      <div class="card-content">
+        <h1>Non-Meat Protein Sources</h1>
+        <ul>
+          <li>Eggs</li>
+          <li>Soy</li>
+        </ul>
+      </div>
+      <button>View Drug Indications</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🌾</div>
+      <div class="card-content">
+        <h1>Carbs and Fibre</h1>
+        <ul>
+          <li>Rice</li>
+          <li>Maize</li>
+        </ul>
+      </div>
+      <button>View Drug Indications</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🥜</div>
+      <div class="card-content">
+        <h1>Nuts and Seeds</h1>
+        <ul>
+          <li>Almonds</li>
+        </ul>
+      </div>
+      <button>View Drug Indications</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">🍅</div>
+      <div class="card-content">
+        <h1>Sauces / Condiments / Dips</h1>
+        <ul>
+          <li>Tomato Ketchup</li>
+        </ul>
+      </div>
+      <button>View Drug Indications</button>
+    </div>
+
+    <div class="card">
+      <div class="emoji">☕</div>
+      <div class="card-content">
+        <h1>Drinks</h1>
+        <ul>
+          <li>Coffee</li>
+          <li>Tea</li>
+          <li>Alcohol</li>
+        </ul>
+      </div>
+      <button>View Drug Indications</button>
+    </div>
+
+  </div>
+</body>
+</html>
