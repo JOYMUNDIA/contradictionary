@@ -11,7 +11,7 @@
     <div class="main-container">
         <!-- Black Header -->
         <div class="header-bar">
-            <span class="header-title">Contra-dictionary</span>
+            <h1 class="header-title">Contra-dictionary</h1>
         </div>
 
         <!-- Subtitle -->
@@ -41,16 +41,20 @@
 
         </div>
 
+        <div class="instruction-radio-search-choice">
+            <p>Please choose a search method that works best for you...</p>
+        </div>
+
         <!-- Buttons Row -->
         <div class="hero-button-section">
-            <button>
+            <button class="toggle-button active" data-type="food">
                 <div class="button-outer">
                     <div class="button-inner">
                         <span><span class="emoji">🥛 &nbsp;</span>Search by Food...</span>
                     </div>
                 </div>
             </button>
-            <button>
+            <button class="toggle-button" data-type="meds">
                 <div class="button-outer">
                     <div class="button-inner">
                         <span><span class="emoji">💊 &nbsp;</span>Search by Meds...</span>
@@ -58,10 +62,10 @@
                 </div>
             </button>
         </div>
-
-        
     </div>
 
   </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
