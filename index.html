@@ -8,63 +8,320 @@
 </head>
 <body>
   <div class="background">
-    <div class="main-container">
-        <!-- Black Header -->
-        <div class="header-bar">
-            <h1 class="header-title">Contra-dictionary</h1>
-        </div>
-
-        <!-- Subtitle -->
-        <div class="sub-title">Discover which foods are sabotaging your meds...</div>
-
-        <!-- Cards Row -->
-        <div class="card-row">
-            <!-- Card 1 -->
-            <div class="card grey-card">
-                <div class="card-content">
-                    <div class="HeroSearchInputContainer food-hero-search-input-container">
-                        <input placeholder="Search by Food.." id="foodSearchinput" class="input" name="text" type="text">
-                    </div>
-                    <img src="images/food-hero-image.jpeg" alt="Food" class="card-image"/>
-                </div>
+        <div class="main-container">
+            <!-- Black Header -->
+            <div class="header-bar">
+                <h1 class="header-title">Contra-dictionary</h1>
             </div>
 
-            <!-- Card 2 -->
-            <div class="card grey-card">
-                <div class="card-content">
-                    <div class="HeroSearchInputContainer meds-hero-search-input-container">
-                        <input placeholder="Search by Meds..." id="medSearchinput" class="input" name="text" type="text">
+            <!-- Subtitle -->
+            <div class="sub-title">Discover which foods are sabotaging your meds...</div>
+
+            <!-- Cards Row -->
+            <div class="card-row">
+                <!-- Card 1 -->
+                <div class="card grey-card">
+                    <div class="card-content">
+                        <div class="HeroSearchInputContainer food-hero-search-input-container">
+                            <input placeholder="Search by Food.." id="foodSearchinput" class="input" name="text" type="text">
+                        </div>
+                        <img src="images/food-hero-image.jpeg" alt="Food" class="card-image"/>
                     </div>
-                    <img src="images/meds-hero-image.jpg" alt="Meds" class="card-image"/>
                 </div>
+
+                <!-- Card 2 -->
+                <div class="card grey-card">
+                    <div class="card-content">
+                        <div class="HeroSearchInputContainer meds-hero-search-input-container">
+                            <input placeholder="Search by Meds..." id="medSearchinput" class="input" name="text" type="text">
+                        </div>
+                        <img src="images/meds-hero-image.jpg" alt="Meds" class="card-image"/>
+                    </div>
+                </div>
+
             </div>
-
-        </div>
-
-        <div class="instruction-radio-search-choice">
-            <p>Please choose a search method that works best for you...</p>
-        </div>
-
-        <!-- Buttons Row -->
-        <div class="hero-button-section">
-            <button class="toggle-button active" data-type="food">
-                <div class="button-outer">
-                    <div class="button-inner">
-                        <span><span class="emoji">🥛 &nbsp;</span>Search by Food...</span>
-                    </div>
-                </div>
-            </button>
-            <button class="toggle-button" data-type="meds">
-                <div class="button-outer">
-                    <div class="button-inner">
-                        <span><span class="emoji">💊 &nbsp;</span>Search by Meds...</span>
-                    </div>
-                </div>
-            </button>
+        
+            <!--closing off the hero section-->
         </div>
     </div>
 
-  </div>
+    <div class="choice-category-section">
+        <div class="choices">
+            <div class="instruction-radio-search-choice">
+                <p>Please choose a search method that works best for you...</p>
+            </div>
+
+            <!-- Buttons Row -->
+            <div class="hero-button-section">
+                <button class="toggle-button active" data-type="food">
+                    <div class="button-outer">
+                        <div class="button-inner">
+                            <span><span class="emoji">🥛 &nbsp;</span>Search by Food...</span>
+                        </div>
+                    </div>
+                </button>
+                <button class="toggle-button" data-type="meds">
+                    <div class="button-outer">
+                        <div class="button-inner">
+                            <span><span class="emoji">💊 &nbsp;</span>Search by Meds...</span>
+                        </div>
+                    </div>
+                </button>
+            </div>
+
+            <!--Food Cards category-->
+            <div class="food-card-row">
+
+                <div class="food-category-card">
+                    <div class="card-image">
+                        <img src="images/fruits fruit category.png" alt="Fruits" />
+                    </div>
+                    <div class="card-content">
+                        <h1>Fruits</h1>
+                        <ul>
+                            <li>Papaya</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+
+                    <div class="button-container">
+                        <button class="food-category-contraindication-btn" role="button">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span>Drug Contraindications</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="food-category-card">
+                    <div class="card-image">
+                        <img src="images/vegetables food category.png" alt="Vegetables" />
+                    </div>
+                    <div class="card-content">
+                        <h1>Vegetables</h1>
+                        <ul>
+                            <li>Carrots</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+
+                    <div class="button-container">
+                        <button class="food-category-contraindication-btn" role="button">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span>Drug Contraindications</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="food-category-card">
+                    <div class="card-image">
+                        <img src="images/dairy food category.png" alt="Dairy" />
+                    </div>
+                    <div class="card-content">
+                        <h1>Dairy</h1>
+                        <ul>
+                            <li>Yoghurt</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+                    <div class="button-container">
+                        <button class="food-category-contraindication-btn" role="button">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span>Drug Contraindications</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="food-category-card">
+                    <div class="card-image">
+                        <img src="images/treats food category.png" alt="Treats/Snacks" />
+                    </div>
+                    <div class="card-content">
+                        <h1>Treats/Snacks</h1>
+                        <ul>
+                            <li>Chocolate</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+
+                    <div class="button-container">
+                        <button class="food-category-contraindication-btn" role="button">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span>Drug Contraindications</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="food-category-card">
+                    <div class="card-image">
+                        <img src="images/red meat food category.png" alt="Red Meats" />
+                    </div>
+                    <div class="card-content">
+                        <h1>Red Meats</h1>
+                        <ul>
+                            <li>Beef</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+                    <div class="button-container">
+                        <button class="food-category-contraindication-btn" role="button">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span>Drug Contraindications</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="food-category-card">
+                    <div class="card-image">
+                        <img src="images/white meat food-category.png" alt="White Meats" />
+                    </div>
+                    <div class="card-content">
+                        <h1>White Meats</h1>
+                        <ul>
+                            <li>Chicken</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+                    <div class="button-container">
+                        <button class="food-category-contraindication-btn" role="button">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span>Drug Contraindications</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="food-category-card">
+                    <div class="card-image">
+                        <img src="images/Non-Meat Protein food-category.png" alt="Non-Meat Protein" />
+                    </div>
+                    <div class="card-content">
+                        <h1>Non-Meat Protein Sources</h1>
+                        <ul>
+                            <li>Eggs</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+                    <div class="button-container">
+                        <button class="food-category-contraindication-btn" role="button">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span>Drug Contraindications</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="food-category-card">
+                    <div class="card-image">
+                        <img src="images/carbs-food-category.png" alt="Carbs and Fibre" />
+                    </div>
+                    <div class="card-content">
+                        <h1>Carbs and Fibre</h1>
+                        <ul>
+                            <li>Maize</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+                    <div class="button-container">
+                        <button class="food-category-contraindication-btn" role="button">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span>Drug Contraindications</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="food-category-card">
+                    <div class="card-image">
+                        <img src="images/nuts food category.png" alt="Nuts and Seeds" />
+                    </div>
+                    <div class="card-content">
+                        <h1>Nuts and Seeds</h1>
+                        <ul>
+                            <li>Almonds</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+                    <div class="button-container">
+                        <button class="food-category-contraindication-btn" role="button">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span>Drug Contraindications</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="food-category-card">
+                    <div class="card-image">
+                        <img src="images/Condiments-food-category.png" alt="Sauces / Condiments / Dips" />
+                    </div>
+                    <div class="card-content">
+                        <h1>Sauces / Condiments / Dips</h1>
+                        <ul>
+                            <li>Mustard</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+                    <div class="button-container">
+                        <button class="food-category-contraindication-btn" role="button">
+                        <div class="button-outer">
+                            <div class="button-inner">
+                                <span>Drug Contraindications</span>
+                            </div>
+                        </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="food-category-card">
+                    <div class="card-image">
+                        <img src="images/drink-food-category.png" alt="Drinks" />
+                    </div>
+                    <div class="card-content">
+                        <h1>Drinks</h1>
+                        <ul>
+                            <li>Coffee</li>
+                            <li>...</li>
+                        </ul>
+                    </div>
+                    <div class="button-container">
+                        <button class="food-category-contraindication-btn" role="button">
+                        <div class="button-outer">
+                            <div class="button-inner">
+                                <span>Drug Contraindications</span>
+                            </div>
+                        </div>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        <!--Closing off the Choice selection-->
+        </div>
+
+    </div>
 
   <script src="script.js"></script>
 </body>

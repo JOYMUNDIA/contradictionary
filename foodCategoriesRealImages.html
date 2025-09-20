@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Food Categories with Buttons</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+    }
+
+    .food-card-row {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      padding: 1rem;
+      justify-content: center;
+    }
+
+    .food-category-card {
+      background-color: rgba(230, 230, 230, 1);
+      color: #000;
+      border-radius: 15px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .food-category-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .food-category-card .card-image {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(230, 230, 230, 1); /* Match card background */
+    }
+
+    .food-category-card .card-image img {
+      max-height: 80%;
+      max-width: 80%;
+      object-fit: contain;
+    }
+
+    .food-category-card .card-content {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .food-category-card .card-content h1 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .food-category-card .card-content ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .food-category-card .card-content ul li {
+      background-color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      font-size: 0.9rem;
+      white-space: nowrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: default;
+    }
+
+    .food-category-card .card-content ul li:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    .food-category-card .button-container{
+      width: 80%;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .food-category-contraindication-btn {
+    all: unset;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+    border-radius: 999vw;
+    background-color: rgba(0, 0, 0, 0.75);
+    box-shadow: -0.15em -0.15em 0.15em -0.075em rgba(5, 5, 5, 0.25),
+        0.0375em 0.0375em 0.0675em 0 rgba(5, 5, 5, 0.1);
+}
+
+.food-category-contraindication-btn::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: calc(100% + 0.3em);
+    height: calc(100% + 0.3em);
+    top: -0.15em;
+    left: -0.15em;
+    border-radius: inherit;
+    background: linear-gradient(-135deg,
+            rgba(5, 5, 5, 0.5),
+            transparent 20%,
+            transparent 100%);
+    filter: blur(0.0125em);
+    opacity: 0.25;
+    mix-blend-mode: multiply;
+}
+
+.food-category-contraindication-btn .button-outer {
+    position: relative;
+    z-index: 1;
+    border-radius: inherit;
+    transition: box-shadow 300ms ease;
+    will-change: box-shadow;
+    box-shadow: 0 0.05em 0.05em -0.01em rgba(5, 5, 5, 1),
+        0 0.01em 0.01em -0.01em rgba(5, 5, 5, 0.5),
+        0.15em 0.3em 0.1em -0.01em rgba(5, 5, 5, 0.25);
+}
+
+.food-category-contraindication-btn:hover .button-outer {
+    box-shadow: 0 0 0 0 rgba(5, 5, 5, 1), 0 0 0 0 rgba(5, 5, 5, 0.5),
+        0 0 0 0 rgba(5, 5, 5, 0.25);
+}
+
+.food-category-contraindication-btn .button-inner {
+    --inset: 0.035em;
+    position: relative;
+    z-index: 1;
+    border-radius: inherit;
+    padding: 1em 1.5em;
+    background-image: linear-gradient(135deg,
+            rgba(230, 230, 230, 1),
+            rgba(180, 180, 180, 1));
+    transition: box-shadow 300ms ease, clip-path 250ms ease,
+        background-image 250ms ease, transform 250ms ease;
+    will-change: box-shadow, clip-path, background-image, transform;
+    overflow: clip;
+    clip-path: inset(0 0 0 0 round 999vw);
+    box-shadow:
+        /* 1 */
+        0 0 0 0 inset rgba(5, 5, 5, 0.1),
+        /* 2 */
+        -0.05em -0.05em 0.05em 0 inset rgba(5, 5, 5, 0.25),
+        /* 3 */
+        0 0 0 0 inset rgba(5, 5, 5, 0.1),
+        /* 4 */
+        0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.25),
+        /* 5 */
+        0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 1),
+        /* 6 */
+        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+        /* 7 */
+        -0.075em -0.25em 0.25em 0.1em inset rgba(5, 5, 5, 0.25);
+}
+
+.food-category-contraindication-btn:hover .button-inner {
+    clip-path: inset(clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) round 999vw);
+    box-shadow:
+        /* 1 */
+        0.1em 0.15em 0.05em 0 inset rgba(5, 5, 5, 0.75),
+        /* 2 */
+        -0.025em -0.03em 0.05em 0.025em inset rgba(5, 5, 5, 0.5),
+        /* 3 */
+        0.25em 0.25em 0.2em 0 inset rgba(5, 5, 5, 0.5),
+        /* 4 */
+        0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.15),
+        /* 5 */
+        0 0 0 0 inset rgba(255, 255, 255, 1),
+        /* 6 */
+        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+        /* 7 */
+        -0.075em -0.12em 0.2em 0.1em inset rgba(5, 5, 5, 0.25);
+}
+
+.food-category-contraindication-btn .button-inner span {
+    position: relative;
+    z-index: 4;
+    font-family: "Inter", sans-serif;
+    letter-spacing: -0.05em;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(135deg,
+            rgba(25, 25, 25, 1),
+            rgba(75, 75, 75, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: transform 250ms ease;
+    display: block;
+    will-change: transform;
+    text-shadow: rgba(0, 0, 0, 0.1) 0 0 0.1em;
+    -webkit-user-select: none; 
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.food-category-contraindication-btn:hover .button-inner span {
+    transform: scale(0.975);
+}
+
+.food-category-contraindication-btn:active .button-inner {
+    transform: scale(0.975);
+}
+
+  </style>
+</head>
+<body>
+  <div class="food-card-row">
+
+    <div class="food-category-card">
+      <div class="card-image"><img src="images/fruits fruit category.png" alt="Fruits" /></div>
+      <div class="card-content">
+        <h1>Fruits</h1>
+        <ul>
+          <li>Papaya</li>
+          <li>...</li>
+        </ul>
+      </div>
+
+      <div class="button-container">
+        <button class="food-category-contraindication-btn" role="button">
+          <div class="button-outer">
+            <div class="button-inner">
+              <span>View Drug Contraindications</span>
+            </div>
+          </div>
+        </button>
+      </div>
+      
+
+    </div>
+
+    <div class="food-category-card">
+      <div class="card-image"><img src="images/vegetables food category.png" alt="Vegetables" /></div>
+      <div class="card-content">
+        <h1>Vegetables</h1>
+        <ul>
+          <li>Carrots</li>
+          <li>...</li>
+        </ul>
+      </div>
+      <div class="button-container">
+        <button class="food-category-contraindication-btn" role="button">
+          <div class="button-outer">
+            <div class="button-inner">
+              <span>View Drug Contraindications</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="food-category-card">
+      <div class="card-image"><img src="images/dairy food category.png" alt="Dairy" /></div>
+      <div class="card-content">
+        <h1>Dairy</h1>
+        <ul>
+          <li>Yoghurt</li>
+          <li>...</li>
+        </ul>
+      </div>
+      <div class="button-container">
+        <button class="food-category-contraindication-btn" role="button">
+          <div class="button-outer">
+            <div class="button-inner">
+              <span>View Drug Contraindications</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="food-category-card">
+      <div class="card-image"><img src="images/treats food category.png" alt="Treats/Snacks" /></div>
+      <div class="card-content">
+        <h1>Treats/Snacks</h1>
+        <ul>
+          <li>Chocolate</li>
+          <li>...</li>
+        </ul>
+      </div>
+      <div class="button-container">
+        <button class="food-category-contraindication-btn" role="button">
+          <div class="button-outer">
+            <div class="button-inner">
+              <span>View Drug Contraindications</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="food-category-card">
+      <div class="card-image"><img src="images/red meat food category.png" alt="Red Meats" /></div>
+      <div class="card-content">
+        <h1>Red Meats</h1>
+        <ul>
+          <li>Beef</li>
+          <li>...</li>
+        </ul>
+      </div>
+      <div class="button-container">
+        <button class="food-category-contraindication-btn" role="button">
+          <div class="button-outer">
+            <div class="button-inner">
+              <span>View Drug Contraindications</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="food-category-card">
+      <div class="card-image"><img src="images/white meat food-category.png" alt="White Meats" /></div>
+      <div class="card-content">
+        <h1>White Meats</h1>
+        <ul>
+          <li>Chicken</li>
+          <li>...</li>
+        </ul>
+      </div>
+      <div class="button-container">
+        <button class="food-category-contraindication-btn" role="button">
+          <div class="button-outer">
+            <div class="button-inner">
+              <span>View Drug Contraindications</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="food-category-card">
+      <div class="card-image"><img src="images/Non-Meat Protein food-category.png" alt="Non-Meat Protein" /></div>
+      <div class="card-content">
+        <h1>Non-Meat Protein Sources</h1>
+        <ul>
+          <li>Eggs</li>
+          <li>...</li>
+        </ul>
+      </div>
+      <div class="button-container">
+        <button class="food-category-contraindication-btn" role="button">
+          <div class="button-outer">
+            <div class="button-inner">
+              <span>View Drug Contraindications</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="food-category-card">
+      <div class="card-image"><img src="images/carbs-food-category.png" alt="Carbs and Fibre" /></div>
+      <div class="card-content">
+        <h1>Carbs and Fibre</h1>
+        <ul>
+          <li>Maize</li>
+          <li>...</li>
+        </ul>
+      </div>
+      <div class="button-container">
+        <button class="food-category-contraindication-btn" role="button">
+          <div class="button-outer">
+            <div class="button-inner">
+              <span>View Drug Contraindications</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="food-category-card">
+      <div class="card-image"><img src="images/nuts food category.png" alt="Nuts and Seeds" /></div>
+      <div class="card-content">
+        <h1>Nuts and Seeds</h1>
+        <ul>
+          <li>Almonds</li>
+          <li>...</li>
+        </ul>
+      </div>
+      <div class="button-container">
+        <button class="food-category-contraindication-btn" role="button">
+          <div class="button-outer">
+            <div class="button-inner">
+              <span>View Drug Contraindications</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="food-category-card">
+      <div class="card-image"><img src="images/Condiments-food-category.png" alt="Sauces / Condiments / Dips" /></div>
+      <div class="card-content">
+        <h1>Sauces / Condiments / Dips</h1>
+        <ul>
+          <li>Mustard</li>
+          <li>...</li>
+        </ul>
+      </div>
+      <div class="button-container">
+        <button class="food-category-contraindication-btn" role="button">
+          <div class="button-outer">
+            <div class="button-inner">
+              <span>View Drug Contraindications</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+    </div>
+
+    <div class="food-category-card">
+      <div class="card-image"><img src="images/drink-food-category.png" alt="Drinks" /></div>
+      <div class="card-content">
+        <h1>Drinks</h1>
+        <ul>
+          <li>Coffee</li>
+          <li>...</li>
+        </ul>
+      </div>
+      <div class="button-container">
+        <button class="food-category-contraindication-btn" role="button">
+          <div class="button-outer">
+            <div class="button-inner">
+              <span>View Drug Contraindications</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
