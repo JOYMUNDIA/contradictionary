@@ -925,6 +925,16 @@ body, html {
     color: #888;
 }
 
+/* Visibility CSS for cards */
+.food-card-row {
+  display: flex;
+}
+
+.drug-card-row {
+  display: none;
+}
+
+
 
 /* Responsive */
 @media (max-width: 768px) {
