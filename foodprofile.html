@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Food–Drug Interaction Card: Grapefruit</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f7f8;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .card {
+      background: #fff;
+      max-width: 400px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card-header {
+      background: linear-gradient(to right, #FF6F61, #FFA500);
+      padding: 1.5rem;
+      color: white;
+    }
+
+    .card-header h2 {
+      font-size: 1.5rem;
+    }
+
+    .icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .section {
+      margin-bottom: 1rem;
+    }
+
+    .section h3 {
+      font-size: 1rem;
+      color: #FF6F61;
+      margin-bottom: 0.5rem;
+    }
+
+    .section p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    .interaction-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .interaction-table th, .interaction-table td {
+      text-align: left;
+      padding: 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .interaction-table th {
+      background-color: #fce9e6;
+      color: #d43f00;
+    }
+
+    .interaction-table tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #ffe1d6;
+      color: #d43f00;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-right: 0.5rem;
+    }
+
+    @media (max-width: 480px) {
+      .card-body, .card-header {
+        padding: 1rem;
+      }
+
+      .card-header h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon">🍊</div>
+      <h2>Grapefruit</h2>
+      <p><em>Fruit • High in Vitamin C • Potent CYP3A4 Inhibitor</em></p>
+    </div>
+    <div class="card-body">
+
+      <div class="section">
+        <h3>⚠️ Common Drug Interactions</h3>
+        <table class="interaction-table">
+          <thead>
+            <tr>
+              <th>Drug Class</th>
+              <th>Effect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Statins (e.g. Atorvastatin)</td>
+              <td>↑ Drug levels, ↑ side effects</td>
+            </tr>
+            <tr>
+              <td>Calcium Channel Blockers</td>
+              <td>↑ Blood pressure drop</td>
+            </tr>
+            <tr>
+              <td>Benzodiazepines</td>
+              <td>↑ Sedation risk</td>
+            </tr>
+            <tr>
+              <td>Antiarrhythmics (e.g. Amiodarone)</td>
+              <td>↑ Toxicity risk</td>
+            </tr>
+            <tr>
+              <td>Immunosuppressants</td>
+              <td>↑ Blood levels dangerously</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3>🧬 Scientific Insight</h3>
+        <p>Grapefruit contains <strong>furanocoumarins</strong> that irreversibly inhibit the intestinal enzyme <strong>CYP3A4</strong>, affecting metabolism of many drugs. This can cause drug accumulation and increase risk of toxicity.</p>
+      </div>
+
+      <div class="section">
+        <h3>✅ Safe Use Tips</h3>
+        <p>
+          <span class="tag">Avoid with CYP3A4 drugs</span>
+          <span class="tag">Check labels</span>
+          <span class="tag">Ask pharmacist</span>
+        </p>
+        <p>Even small amounts of grapefruit juice can interfere. The effect can last up to <strong>3 days</strong> after consumption.</p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grapefruit Interaction Profile</title>
+    <style>
+        body {
+        font-family: 'Segoe UI', sans-serif;
+        background: #f5f7fa;
+        margin: 0;
+        padding: 20px;
+        }
+
+        .card {
+        max-width: 800px;
+        position: relative;
+        margin: auto;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        padding: 24px;
+        }
+
+        .card:before, .card:after
+        {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        bottom: 25px;
+        left: 10px;
+        width: 50%;
+        top: 80%;
+        max-width:300px;
+        background: #777;
+        -webkit-box-shadow: 0 35px 20px #777;
+        -moz-box-shadow: 0 35px 20px #777;
+        box-shadow: 0 35px 20px #777;
+        -webkit-transform: rotate(-8deg);
+        -moz-transform: rotate(-8deg);
+        -o-transform: rotate(-8deg);
+        -ms-transform: rotate(-8deg);
+        transform: rotate(-8deg);
+        }
+
+        .card:after
+        {
+        -webkit-transform: rotate(8deg);
+        -moz-transform: rotate(8deg);
+        -o-transform: rotate(8deg);
+        -ms-transform: rotate(8deg);
+        transform: rotate(8deg);
+        right: 10px;
+        left: auto;
+        }
+
+        .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        }
+
+        .header img {
+        max-width: 80px;
+        border-radius: 50%;
+        }
+
+        .header h2 {
+        font-size: 1.8rem;
+        margin: 0;
+        color: #2c3e50;
+        }
+
+        .tabs {
+        display: flex;
+        gap: 12px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        }
+
+        .tab {
+        cursor: pointer;
+        padding: 10px 16px;
+        background: #ecf0f1;
+        border-radius: 8px;
+        transition: 0.3s;
+        }
+
+        .tab.active {
+        /*background: #2c3e50;*/
+        background: rgba(206,188,155,1);
+        background: -moz-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+        background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(206,188,155,1)), color-stop(51%, rgba(85,63,50,1)), color-stop(100%, rgba(42,31,25,1)));
+        background: -webkit-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+        background: -o-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+        background: -ms-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+        background: linear-gradient(135deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cebc9b', endColorstr='#2a1f19', GradientType=1 );
+        color: white;
+        }
+
+        .tab-content {
+        display: none;
+        margin-top: 20px;
+        }
+
+        .tab-content.active {
+        display: block;
+        }
+
+        .accordion {
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        }
+
+        .accordion-header {
+        /*background: #34495e;*/
+        background: rgba(206,188,155,1);
+        background: -moz-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+        background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(206,188,155,1)), color-stop(51%, rgba(85,63,50,1)), color-stop(100%, rgba(42,31,25,1)));
+        background: -webkit-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+        background: -o-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+        background: -ms-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+        background: linear-gradient(135deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cebc9b', endColorstr='#2a1f19', GradientType=1 );
+        color: white;
+        padding: 12px 16px;
+        cursor: pointer;
+        }
+
+        .accordion-header small {
+        font-size: 0.85em;
+        color: #dcdcdc;
+        font-weight: normal;
+        }
+
+        .accordion-body {
+        display: none;
+        padding: 16px;
+        background: #fafafa;
+        border-top: 1px solid #ccc;
+        }
+
+        .accordion.active .accordion-body {
+        display: block;
+        }
+
+        .modal {
+        display: none;
+        position: fixed;
+        z-index: 10;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        }
+
+        .modal-content {
+        background: white;
+        padding: 20px;
+        margin: 10% auto;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 8px;
+        position: relative;
+        }
+
+        .modal-close {
+        position: absolute;
+        top: 10px;
+        right: 14px;
+        cursor: pointer;
+        font-weight: bold;
+        }
+
+        .btn {
+        background: #2980b9;
+        color: white;
+        padding: 8px 14px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        }
+
+        .btn:hover {
+        background: #1c5980;
+        }
+    </style>
+    </head>
+    <body>
+
+    <div class="card">
+        <div class="header">
+            <h2>🍊 Grapefruit Profile</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Citrus_paradisi_%28Grapefruit%29.jpg" alt="Grapefruit">
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('overview')">Overview</div>
+            <div class="tab" onclick="switchTab('interactions')">Drug Interactions</div>
+            <div class="tab" onclick="switchTab('advice')">Patient Advice</div>
+        </div>
+
+        <div id="overview" class="tab-content active">
+            <p><strong>Scientific Name:</strong> <em>Citrus × paradisi</em></p>
+            <p><strong>Common Forms:</strong> Whole fruit, Juice</p>
+            <p><strong>Nutritional:</strong> Vitamin C, Flavonoids, Fiber</p>
+            <p><strong>Effect:</strong> Inhibits CYP3A4 enzyme → raises drug levels</p>
+            <button class="btn" onclick="openModal()">🔬 View Scientific Background</button>
+        </div>
+
+        <!-- DRUG INTERACTIONS TAB (UPDATED) -->
+        <div id="interactions" class="tab-content">
+
+            <!-- Statins -->
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Statins <br>
+                    <small>(Lipid-lowering agents)</small>
+                </div>
+                <div class="accordion-body">
+                    <p><strong>Interaction:</strong> ⚠️ Increases drug levels</p>
+                    <p><strong>Layman Explanation:</strong> Grapefruit juice can make some statins too strong in your body, raising risk of side effects like muscle pain or liver issues.</p>
+                    <p><strong>Scientific Explanation:</strong> Grapefruit inhibits <strong>CYP3A4</strong> enzyme in the small intestine, decreasing metabolism of certain statins → higher blood levels → increased risk of rhabdomyolysis and hepatotoxicity.</p>
+                </div>
+            </div>
+
+            <!-- Calcium Channel Blockers -->
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Calcium Channel Blockers <br>
+                    <small>(Antihypertensives)</small>
+                </div>
+                <div class="accordion-body">
+                    <p><strong>Interaction:</strong> ⚠️ Increases drug levels</p>
+                    <p><strong>Layman Explanation:</strong> Can make blood pressure drop too low if taken with grapefruit juice.</p>
+                    <p><strong>Scientific Explanation:</strong> CYP3A4 inhibition by grapefruit leads to increased bioavailability of these antihypertensives, enhancing hypotensive effects.</p>
+                </div>
+            </div>
+
+            <!-- Benzodiazepines -->
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Benzodiazepines <br>
+                    <small>(Anxiolytics / Sedatives)</small>
+                </div>
+                <div class="accordion-body">
+                    <p><strong>Interaction:</strong> ⚠️ Potentiates sedative effect</p>
+                    <p><strong>Layman Explanation:</strong> Makes sedatives stronger, which could cause excessive drowsiness or slowed breathing.</p>
+                    <p><strong>Scientific Explanation:</strong> Grapefruit inhibits metabolism via CYP3A4, resulting in increased plasma concentration and central nervous system depression.</p>
+                </div>
+            </div>
+
+            <!-- Antiarrhythmics -->
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Antiarrhythmics <br>
+                    <small>(Heart rhythm medications)</small>
+                </div>
+                <div class="accordion-body">
+                    <p><strong>Interaction:</strong> ⚠️ Increases risk of toxicity</p>
+                    <p><strong>Layman Explanation:</strong> Can increase heart rhythm drug levels, raising risk of side effects like heart rhythm disturbances.</p>
+                    <p><strong>Scientific Explanation:</strong> CYP3A4 inhibition reduces hepatic and intestinal metabolism of amiodarone → increased systemic exposure → potential for proarrhythmic effects.</p>
+                </div>
+            </div>
+
+            <!-- Immunosuppressants -->
+            <div class="accordion">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Immunosuppressants <br>
+                    <small>(Used after transplants)</small>
+                </div>
+                <div class="accordion-body">
+                    <p><strong>Interaction:</strong> ⚠️ Increases drug levels</p>
+                    <p><strong>Layman Explanation:</strong> Grapefruit can dangerously raise levels of drugs used to prevent organ rejection.</p>
+                    <p><strong>Scientific Explanation:</strong> Strong CYP3A4 inhibition by grapefruit leads to significantly increased blood concentrations of immunosuppressants → risk of nephrotoxicity, neurotoxicity, and graft complications.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="advice" class="tab-content">
+            <ul>
+            <li>🚫 Avoid grapefruit with medications marked "Do not take with grapefruit."</li>
+            <li>📅 Effect can last up to 72 hours after eating grapefruit.</li>
+            <li>🍏 Safe alternatives: Orange, apple, pear juices</li>
+            <li>💊 Always consult pharmacist before mixing meds with grapefruit</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal for scientific explanation -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">×</span>
+            <h3>🧪 Scientific Background</h3>
+            <p>Grapefruit contains <strong>furanocoumarins</strong> that irreversibly inhibit <strong>intestinal CYP3A4</strong>, an enzyme responsible for breaking down many drugs.</p>
+            <p>This increases <strong>systemic drug exposure</strong>, leading to higher plasma levels and increased risk of adverse effects.</p>
+            <p>Even a single glass of juice can have measurable effects lasting <strong>up to 3 days</strong>.</p>
+        </div>
+    </div>
+
+
+<script>
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        document.querySelector(`[onclick="switchTab('${tabId}')"]`).classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    }
+
+    function toggleAccordion(header) {
+        header.parentElement.classList.toggle('active');
+    }
+
+    function openModal() {
+        document.getElementById('modal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
