@@ -45,6 +45,142 @@
         </div>
     </div>
 
+    <!--Common Contraindication cards-->
+    <br>
+    <div class="profile-card-container-parent">
+        <div class="sub-title">
+            <h1>Common Food Drug Contraindications</h1>
+        </div>
+
+        <div class="profile-card-container profile-container1">
+            
+            <!-- Profile card 1 -->
+            <div class="profile-card">
+                <div class="profile-card-content">
+                    <div class="header">
+                        <h2>Grapefruit Profile</h2>
+                        <img src="images/grapefruit.png" alt="Grapefruit">
+                    </div>
+
+                    <div class="tabs">
+                        <div class="tab active" onclick="switchTab('overview')">Overview</div>
+                        <div class="tab" onclick="switchTab('interactions')">Drug Interactions</div>
+                        <div class="tab" onclick="switchTab('advice')">Patient Advice</div>
+                    </div>
+
+                    <div id="overview" class="tab-content active">
+                        <p><strong>Scientific Name:</strong> <em>Citrus × paradisi</em></p>
+                        <p><strong>Common Forms:</strong> Whole fruit, Juice</p>
+                        <p><strong>Nutritional:</strong> Vitamin C, Flavonoids, Fiber</p>
+                        <p><strong>Effect:</strong> Inhibits CYP3A4 enzyme → raises drug levels</p>
+                        <!--<button class="btn" onclick="openprofileModal()">🔬 View Scientific Background</button>-->
+                        <button class="btn" onclick="openprofileModal()" role="button">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span><span class="emoji">🔬</span> View Scientific Background</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- DRUG INTERACTIONS TAB (UPDATED) -->
+                    <div id="interactions" class="tab-content">
+
+                        <!-- Statins -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                Statins <br>
+                                <small>(Lipid-lowering agents)</small>
+                            </div>
+                            <div class="accordion-body">
+                                <p><strong>Interaction:</strong> ⚠️ Increases drug levels</p><br>
+                                <p><strong>Layman Explanation:</strong> Grapefruit juice can make some statins too strong in your body, raising risk of side effects like muscle pain or liver issues.</p><br>
+                                <p><strong>Scientific Explanation:</strong> Grapefruit inhibits <strong>CYP3A4</strong> enzyme in the small intestine, decreasing metabolism of certain statins → higher blood levels → increased risk of rhabdomyolysis and hepatotoxicity.</p><br>
+                            </div>
+                        </div>
+
+                        <!-- Calcium Channel Blockers -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                Calcium Channel Blockers <br>
+                                <small>(Antihypertensives)</small>
+                            </div>
+                            <div class="accordion-body">
+                                <p><strong>Interaction:</strong> ⚠️ Increases drug levels</p><br>
+                                <p><strong>Layman Explanation:</strong> Can make blood pressure drop too low if taken with grapefruit juice.</p><br>
+                                <p><strong>Scientific Explanation:</strong> CYP3A4 inhibition by grapefruit leads to increased bioavailability of these antihypertensives, enhancing hypotensive effects.</p><br>
+                            </div>
+                        </div>
+
+                        <!-- Benzodiazepines -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                Benzodiazepines <br>
+                                <small>(Anxiolytics / Sedatives)</small>
+                            </div>
+                            <div class="accordion-body">
+                                <p><strong>Interaction:</strong> ⚠️ Potentiates sedative effect</p><br>
+                                <p><strong>Layman Explanation:</strong> Makes sedatives stronger, which could cause excessive drowsiness or slowed breathing.</p><br>
+                                <p><strong>Scientific Explanation:</strong> Grapefruit inhibits metabolism via CYP3A4, resulting in increased plasma concentration and central nervous system depression.</p><br>
+                            </div>
+                        </div>
+
+                        <!-- Antiarrhythmics -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                Antiarrhythmics <br>
+                                <small>(Heart rhythm medications)</small>
+                            </div>
+                            <div class="accordion-body">
+                                <p><strong>Interaction:</strong> ⚠️ Increases risk of toxicity</p><br>
+                                <p><strong>Layman Explanation:</strong> Can increase heart rhythm drug levels, raising risk of side effects like heart rhythm disturbances.</p><br>
+                                <p><strong>Scientific Explanation:</strong> CYP3A4 inhibition reduces hepatic and intestinal metabolism of amiodarone → increased systemic exposure → potential for proarrhythmic effects.</p><br>
+                            </div>
+                        </div>
+
+                        <!-- Immunosuppressants -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                Immunosuppressants <br>
+                                <small>(Used after transplants)</small>
+                            </div>
+                            <div class="accordion-body">
+                                <p><strong>Interaction:</strong> ⚠️ Increases drug levels</p><br>
+                                <p><strong>Layman Explanation:</strong> Grapefruit can dangerously raise levels of drugs used to prevent organ rejection.</p><br>
+                                <p><strong>Scientific Explanation:</strong> Strong CYP3A4 inhibition by grapefruit leads to significantly increased blood concentrations of immunosuppressants → risk of nephrotoxicity, neurotoxicity, and graft complications.</p><br>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div id="advice" class="tab-content">
+                        <ul>
+                        <li>🚫 Avoid grapefruit with medications marked "Do not take with grapefruit."</li>
+                        <li>📅 Effect can last up to 72 hours after eating grapefruit.</li>
+                        <li>🍏 Safe alternatives: Orange, apple, pear juices</li>
+                        <li>💊 Always consult pharmacist before mixing meds with grapefruit</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- profileModal for scientific explanation -->
+                <div id="profileModal" class="profileModal">
+                    <div class="profileModal-content">
+                        <span class="profileModal-close" onclick="closeprofileModal()">×</span>
+                        <h3>🧪 Scientific Background</h3><br>
+                        <p>Grapefruit contains <strong>furanocoumarins</strong> that irreversibly inhibit <strong>intestinal CYP3A4</strong>, an enzyme responsible for breaking down many drugs.</p>
+                        <p>This increases <strong>systemic drug exposure</strong>, leading to higher plasma levels and increased risk of adverse effects.</p>
+                        <p>Even a single glass of juice can have measurable effects lasting <strong>up to 3 days</strong>.</p>
+                    </div>
+                </div>
+        </div>
+    <br><br>
+
+    <!-- Profile card 2 -->
+    
+        
+    <!--End of Common Contraindication cards-->
+
     <div class="choice-category-section">
         <div class="choices">
             <div class="instruction-radio-search-choice">

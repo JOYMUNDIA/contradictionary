@@ -10,25 +10,246 @@ body, html {
   height: 100%;
 }
 
-.background,
-.card-row-common-contraindication {
+/* =========== Common CSS Styles ============= */
+.background, 
+.card-row-common-contraindication,
+.card-content,
+.HeroSearchInputContainer,
+.instruction-radio-search-choice,
+.hero-button-section button .button-inner span,
+.food-category-card,
+.food-category-card .button-container,
+.food-category-card .card-image,
+.drug-system-card .card-image,
+.button-container{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
   position: relative;
+}
+
+.card-row, 
+.card-row-common-contraindication,
+.food-card-row,
+.drug-card-row {
+  display: flex;
+  width: 100%;
+  gap: 1.8rem; /* Small space between cards */
+  flex-wrap: wrap;
+}
+
+.grey-card,
+.food-category-card,
+.drug-system-card {
+  background-color: rgba(230, 230, 230, 1);
+  color: #000;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.hero-button-section button,
+.food-category-contraindication-btn,
+.drug-category-contraindication-btn,
+.profile-card .btn {
+    all: unset;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    position: relative;
+    border-radius: 999vw;
+    background-color: rgba(0, 0, 0, 0.75);
+    box-shadow: -0.15em -0.15em 0.15em -0.075em rgba(5, 5, 5, 0.25),
+        0.0375em 0.0375em 0.0675em 0 rgba(5, 5, 5, 0.1);
+}
+
+.hero-button-section button::after,
+.food-category-contraindication-btn::after,
+.drug-category-contraindication-btn::after,
+.profile-card .btn::after {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    width: calc(100% + 0.3em);
+    height: calc(100% + 0.3em);
+    top: -0.15em;
+    left: -0.15em;
+    border-radius: inherit;
+    background: linear-gradient(-135deg,
+            rgba(5, 5, 5, 0.5),
+            transparent 20%,
+            transparent 100%);
+    filter: blur(0.0125em);
+    opacity: 0.25;
+    mix-blend-mode: multiply;
+}
+
+.hero-button-section button .button-outer,
+.food-category-contraindication-btn .button-outer,
+.drug-category-contraindication-btn .button-outer,
+.profile-card .btn .button-outer {
+    position: relative;
+    z-index: 1;
+    border-radius: inherit;
+    transition: box-shadow 300ms ease;
+    will-change: box-shadow;
+    box-shadow: 0 0.05em 0.05em -0.01em rgba(5, 5, 5, 1),
+        0 0.01em 0.01em -0.01em rgba(5, 5, 5, 0.5),
+        0.15em 0.3em 0.1em -0.01em rgba(5, 5, 5, 0.25);
+}
+
+.hero-button-section button:hover .button-outer,
+.food-category-contraindication-btn:hover .button-outer,
+.drug-category-contraindication-btn:hover .button-outer
+.profile-card .btn:hover .button-outer {
+    box-shadow: 0 0 0 0 rgba(5, 5, 5, 1), 
+                0 0 0 0 rgba(5, 5, 5, 0.5),
+                0 0 0 0 rgba(5, 5, 5, 0.25);
+}
+
+.hero-button-section .button-inner,
+.food-category-contraindication-btn .button-inner,
+.drug-category-contraindication-btn .button-inner,
+.profile-card .btn .button-inner {
+    --inset: 0.035em;
+    position: relative;
+    z-index: 1;
+    border-radius: inherit;
+    padding: 1em 1.5em;
+    background-image: linear-gradient(135deg,
+            rgba(230, 230, 230, 1),
+            rgba(180, 180, 180, 1));
+    transition: box-shadow 300ms ease, clip-path 250ms ease,
+        background-image 250ms ease, transform 250ms ease;
+    will-change: box-shadow, clip-path, background-image, transform;
+    overflow: clip;
+    clip-path: inset(0 0 0 0 round 999vw);
+    box-shadow:
+        /* 1 */
+        0 0 0 0 inset rgba(5, 5, 5, 0.1),
+        /* 2 */
+        -0.05em -0.05em 0.05em 0 inset rgba(5, 5, 5, 0.25),
+        /* 3 */
+        0 0 0 0 inset rgba(5, 5, 5, 0.1),
+        /* 4 */
+        0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.25),
+        /* 5 */
+        0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 1),
+        /* 6 */
+        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+        /* 7 */
+        -0.075em -0.25em 0.25em 0.1em inset rgba(5, 5, 5, 0.25);
+}
+
+.hero-button-section button:hover .button-inner,
+.food-category-contraindication-btn:hover .button-inner,
+.drug-category-contraindication-btn:hover .button-inner,
+.profile-card .btn:hover .button-inner {
+    clip-path: inset(
+                      clamp(1px, 0.0625em, 2px) 
+                      clamp(1px, 0.0625em, 2px) 
+                      clamp(1px, 0.0625em, 2px) 
+                      clamp(1px, 0.0625em, 2px) 
+                      round 999vw);
+    box-shadow:
+        /* 1 */
+        0.1em 0.15em 0.05em 0 inset rgba(5, 5, 5, 0.75),
+        /* 2 */
+        -0.025em -0.03em 0.05em 0.025em inset rgba(5, 5, 5, 0.5),
+        /* 3 */
+        0.25em 0.25em 0.2em 0 inset rgba(5, 5, 5, 0.5),
+        /* 4 */
+        0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.15),
+        /* 5 */
+        0 0 0 0 inset rgba(255, 255, 255, 1),
+        /* 6 */
+        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
+        /* 7 */
+        -0.075em -0.12em 0.2em 0.1em inset rgba(5, 5, 5, 0.25);
+}
+
+.hero-button-section button .button-inner span,
+.food-category-contraindication-btn .button-inner span,
+.drug-category-contraindication-btn .button-inner span,
+.profile-card .btn .button-inner span {
+    position: relative;
+    z-index: 4;
+    font-family: "Inter", sans-serif;
+    letter-spacing: -0.05em;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(135deg,
+            rgba(25, 25, 25, 1),
+            rgba(75, 75, 75, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    transition: transform 250ms ease;
+    will-change: transform;
+    text-shadow: rgba(0, 0, 0, 0.1) 0 0 0.1em;
+    -webkit-user-select: none; 
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.hero-button-section button:hover .button-inner span,
+.food-category-contraindication-btn:hover .button-inner span
+.drug-category-contraindication-btn:hover .button-inner span 
+.profile-card .btn:hover .button-inner span{
+    transform: scale(0.975);
+}
+
+.hero-button-section button:active .button-inner,
+.food-category-contraindication-btn:active .button-inner,
+.drug-category-contraindication-btn:active .button-inner,
+.profile-card .btn:active .button-inner {
+    transform: scale(0.975);
+}
+
+.card,
+.hero-button-section,
+.food-category-card .card-content,
+.food-category-card .card-content ul,
+.drug-system-card,
+.mini-card ul {
+  display: flex;
+}
+
+.card,
+.card-content,
+.food-category-card,
+.food-category-card .card-content,
+.drug-system-card{
+  flex-direction: column;
+}
+
+.background,
+.choice-category-section{
+  width: 100%;
+  background-image: url(images/background.jpg);
+  background-size: cover;
+}
+
+.header-bar,
+.profile-card .tab.active{
+  background: rgba(206,188,155,1);
+  background: -moz-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(206,188,155,1)), color-stop(51%, rgba(85,63,50,1)), color-stop(100%, rgba(42,31,25,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+  background: linear-gradient(135deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cebc9b', endColorstr='#2a1f19', GradientType=1 );
+}
+
+/* =========== End of Common CSS Styles ============= */
+
+
+.background,
+.card-row-common-contraindication {
+  padding: 40px;
 }
 
 .background {
   /*background: linear-gradient(to bottom right, #e0c3fc, #8ec5fc);*/
-  background-image: url(images/background.jpg);
-  background-size: cover;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-  position: relative;
 }
 
 /* Frosted-glass container */
@@ -52,15 +273,7 @@ body, html {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  background: rgba(206,188,155,1);
-  background: -moz-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
-  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(206,188,155,1)), color-stop(51%, rgba(85,63,50,1)), color-stop(100%, rgba(42,31,25,1)));
-  background: -webkit-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
-  background: -o-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
-  background: -ms-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
-  background: linear-gradient(135deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cebc9b', endColorstr='#2a1f19', GradientType=1 );
-}
+  }
 
 .header-title{
   width: 100%;
@@ -124,47 +337,24 @@ body, html {
 }
 
 /* Card layout */
-.card-row, 
-.card-row-common-contraindication {
-  display: flex;
-  width: 100%;
-  gap: 1.8rem; /* Small space between cards */
-  flex-wrap: wrap;
-}
 
 /* Outer card styles */
 .card {
   flex: 1;
   border-radius: 15px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden; 
   justify-content: flex-start;
 }
-
-.grey-card {
-  background-color: rgba(230, 230, 230, 1);
-  color: #000;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-}
-
 
 /* Inner content wrapper with top and left padding only */
 .card-content {
   padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
 /* Hero search bar */
 .HeroSearchInputContainer {
   width: 100%;
   height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: linear-gradient(to bottom,rgb(227, 213, 255),rgb(255, 231, 231));
   border-radius: 30px;
   overflow: hidden;
@@ -206,14 +396,10 @@ body, html {
   width: 100%;
   padding: 1rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
 }
 
 /* Buttons section */
 .hero-button-section {
-  display: flex;
   width: 100%;
   justify-content: center;
   gap: 20px;
@@ -221,134 +407,8 @@ body, html {
   flex-wrap: wrap;
 }
 
-.hero-button-section button {
-    all: unset;
-    cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    position: relative;
-    border-radius: 999vw;
-    background-color: rgba(0, 0, 0, 0.75);
-    box-shadow: -0.15em -0.15em 0.15em -0.075em rgba(5, 5, 5, 0.25),
-        0.0375em 0.0375em 0.0675em 0 rgba(5, 5, 5, 0.1);
-}
-
-.hero-button-section button::after {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    width: calc(100% + 0.3em);
-    height: calc(100% + 0.3em);
-    top: -0.15em;
-    left: -0.15em;
-    border-radius: inherit;
-    background: linear-gradient(-135deg,
-            rgba(5, 5, 5, 0.5),
-            transparent 20%,
-            transparent 100%);
-    filter: blur(0.0125em);
-    opacity: 0.25;
-    mix-blend-mode: multiply;
-}
-
-.hero-button-section button .button-outer {
-    position: relative;
-    z-index: 1;
-    border-radius: inherit;
-    transition: box-shadow 300ms ease;
-    will-change: box-shadow;
-    box-shadow: 0 0.05em 0.05em -0.01em rgba(5, 5, 5, 1),
-        0 0.01em 0.01em -0.01em rgba(5, 5, 5, 0.5),
-        0.15em 0.3em 0.1em -0.01em rgba(5, 5, 5, 0.25);
-}
-
-.hero-button-section button:hover .button-outer {
-    box-shadow: 0 0 0 0 rgba(5, 5, 5, 1), 0 0 0 0 rgba(5, 5, 5, 0.5),
-        0 0 0 0 rgba(5, 5, 5, 0.25);
-}
-
-.hero-button-section .button-inner {
-    --inset: 0.035em;
-    position: relative;
-    z-index: 1;
-    border-radius: inherit;
-    padding: 1em 1.5em;
-    background-image: linear-gradient(135deg,
-            rgba(230, 230, 230, 1),
-            rgba(180, 180, 180, 1));
-    transition: box-shadow 300ms ease, clip-path 250ms ease,
-        background-image 250ms ease, transform 250ms ease;
-    will-change: box-shadow, clip-path, background-image, transform;
-    overflow: clip;
-    clip-path: inset(0 0 0 0 round 999vw);
-    box-shadow:
-        /* 1 */
-        0 0 0 0 inset rgba(5, 5, 5, 0.1),
-        /* 2 */
-        -0.05em -0.05em 0.05em 0 inset rgba(5, 5, 5, 0.25),
-        /* 3 */
-        0 0 0 0 inset rgba(5, 5, 5, 0.1),
-        /* 4 */
-        0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.25),
-        /* 5 */
-        0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 1),
-        /* 6 */
-        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
-        /* 7 */
-        -0.075em -0.25em 0.25em 0.1em inset rgba(5, 5, 5, 0.25);
-}
-
-.hero-button-section button:hover .button-inner {
-    clip-path: inset(clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) round 999vw);
-    box-shadow:
-        /* 1 */
-        0.1em 0.15em 0.05em 0 inset rgba(5, 5, 5, 0.75),
-        /* 2 */
-        -0.025em -0.03em 0.05em 0.025em inset rgba(5, 5, 5, 0.5),
-        /* 3 */
-        0.25em 0.25em 0.2em 0 inset rgba(5, 5, 5, 0.5),
-        /* 4 */
-        0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.15),
-        /* 5 */
-        0 0 0 0 inset rgba(255, 255, 255, 1),
-        /* 6 */
-        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
-        /* 7 */
-        -0.075em -0.12em 0.2em 0.1em inset rgba(5, 5, 5, 0.25);
-}
-
-.hero-button-section button .button-inner span {
-    position: relative;
-    z-index: 4;
-    font-family: "Inter", sans-serif;
-    letter-spacing: -0.05em;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0);
-    background-image: linear-gradient(135deg,
-            rgba(25, 25, 25, 1),
-            rgba(75, 75, 75, 1));
-    -webkit-background-clip: text;
-    background-clip: text;
-    transition: transform 250ms ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    will-change: transform;
-    text-shadow: rgba(0, 0, 0, 0.1) 0 0 0.1em;
-    -webkit-user-select: none; 
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.hero-button-section button:hover .button-inner span {
-    transform: scale(0.975);
-}
-
-.hero-button-section button:active .button-inner {
-    transform: scale(0.975);
-}
-
-.hero-button-section .emoji {
+.hero-button-section .emoji,
+.profile-card .btn .emoji {
     background: none !important;
     -webkit-background-clip: unset !important;
     background-clip: unset !important;
@@ -389,32 +449,16 @@ body, html {
   transform: scale(0.975);
 }
 
-.choice-category-section{
-  width: 100%;
-  background-image: url(images/background.jpg);
-  background-size: cover;
-}
-
 /* Food Category Css */
 .food-card-row {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.8rem;
       padding: 1rem;
       justify-content: center;
     }
 
     .food-category-card {
-      background-color: rgba(230, 230, 230, 1);
-      color: #000;
       border-radius: 15px;
       box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       width: 250px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -426,9 +470,6 @@ body, html {
 
     .food-category-card .card-image {
       height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background-color: rgba(230, 230, 230, 1); /* Match card background */
     }
 
@@ -440,8 +481,6 @@ body, html {
 
     .food-category-card .card-content {
       padding: 1rem;
-      display: flex;
-      flex-direction: column;
       flex-grow: 1;
     }
 
@@ -454,7 +493,6 @@ body, html {
     .food-category-card .card-content ul {
       list-style-type: none;
       padding: 0;
-      display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
       justify-content: center;
@@ -479,155 +517,19 @@ body, html {
     .food-category-card .button-container{
       width: 80%;
       padding: 0.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       text-align: center;
     }
-
-    .food-category-contraindication-btn {
-    all: unset;
-    cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    position: relative;
-    border-radius: 999vw;
-    background-color: rgba(0, 0, 0, 0.75);
-    box-shadow: -0.15em -0.15em 0.15em -0.075em rgba(5, 5, 5, 0.25),
-        0.0375em 0.0375em 0.0675em 0 rgba(5, 5, 5, 0.1);
-}
-
-.food-category-contraindication-btn::after {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    width: calc(100% + 0.3em);
-    height: calc(100% + 0.3em);
-    top: -0.15em;
-    left: -0.15em;
-    border-radius: inherit;
-    background: linear-gradient(-135deg,
-            rgba(5, 5, 5, 0.5),
-            transparent 20%,
-            transparent 100%);
-    filter: blur(0.0125em);
-    opacity: 0.25;
-    mix-blend-mode: multiply;
-}
-
-.food-category-contraindication-btn .button-outer {
-    position: relative;
-    z-index: 1;
-    border-radius: inherit;
-    transition: box-shadow 300ms ease;
-    will-change: box-shadow;
-    box-shadow: 0 0.05em 0.05em -0.01em rgba(5, 5, 5, 1),
-        0 0.01em 0.01em -0.01em rgba(5, 5, 5, 0.5),
-        0.15em 0.3em 0.1em -0.01em rgba(5, 5, 5, 0.25);
-}
-
-.food-category-contraindication-btn:hover .button-outer {
-    box-shadow: 0 0 0 0 rgba(5, 5, 5, 1), 0 0 0 0 rgba(5, 5, 5, 0.5),
-        0 0 0 0 rgba(5, 5, 5, 0.25);
-}
-
-.food-category-contraindication-btn .button-inner {
-    --inset: 0.035em;
-    position: relative;
-    z-index: 1;
-    border-radius: inherit;
-    padding: 1em 1.5em;
-    background-image: linear-gradient(135deg,
-            rgba(230, 230, 230, 1),
-            rgba(180, 180, 180, 1));
-    transition: box-shadow 300ms ease, clip-path 250ms ease,
-        background-image 250ms ease, transform 250ms ease;
-    will-change: box-shadow, clip-path, background-image, transform;
-    overflow: clip;
-    clip-path: inset(0 0 0 0 round 999vw);
-    box-shadow:
-        /* 1 */
-        0 0 0 0 inset rgba(5, 5, 5, 0.1),
-        /* 2 */
-        -0.05em -0.05em 0.05em 0 inset rgba(5, 5, 5, 0.25),
-        /* 3 */
-        0 0 0 0 inset rgba(5, 5, 5, 0.1),
-        /* 4 */
-        0 0 0.05em 0.2em inset rgba(255, 255, 255, 0.25),
-        /* 5 */
-        0.025em 0.05em 0.1em 0 inset rgba(255, 255, 255, 1),
-        /* 6 */
-        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
-        /* 7 */
-        -0.075em -0.25em 0.25em 0.1em inset rgba(5, 5, 5, 0.25);
-}
-
-.food-category-contraindication-btn:hover .button-inner {
-    clip-path: inset(clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) clamp(1px, 0.0625em, 2px) round 999vw);
-    box-shadow:
-        /* 1 */
-        0.1em 0.15em 0.05em 0 inset rgba(5, 5, 5, 0.75),
-        /* 2 */
-        -0.025em -0.03em 0.05em 0.025em inset rgba(5, 5, 5, 0.5),
-        /* 3 */
-        0.25em 0.25em 0.2em 0 inset rgba(5, 5, 5, 0.5),
-        /* 4 */
-        0 0 0.05em 0.5em inset rgba(255, 255, 255, 0.15),
-        /* 5 */
-        0 0 0 0 inset rgba(255, 255, 255, 1),
-        /* 6 */
-        0.12em 0.12em 0.12em inset rgba(255, 255, 255, 0.25),
-        /* 7 */
-        -0.075em -0.12em 0.2em 0.1em inset rgba(5, 5, 5, 0.25);
-}
-
-.food-category-contraindication-btn .button-inner span {
-    position: relative;
-    z-index: 4;
-    font-family: "Inter", sans-serif;
-    letter-spacing: -0.05em;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0);
-    background-image: linear-gradient(135deg,
-            rgba(25, 25, 25, 1),
-            rgba(75, 75, 75, 1));
-    -webkit-background-clip: text;
-    background-clip: text;
-    transition: transform 250ms ease;
-    display: block;
-    will-change: transform;
-    text-shadow: rgba(0, 0, 0, 0.1) 0 0 0.1em;
-    -webkit-user-select: none; 
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.food-category-contraindication-btn:hover .button-inner span {
-    transform: scale(0.975);
-}
-
-.food-category-contraindication-btn:active .button-inner {
-    transform: scale(0.975);
-}
 
 /* DRUG CATEGORY CSS - Mirrors Food Card Styles */
 
 .drug-card-row {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.8rem;
       justify-content: center;
     }
 
     .drug-system-card {
-      background-color: rgba(230, 230, 230, 1);
-      color: #000;
       border-radius: 15px;
       box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 4px;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
       align-items: center;
       width: 28rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -640,9 +542,6 @@ body, html {
 
     .drug-system-card .card-image {
       height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       /*background-color: #eee;*/
       width: 100%;
     }
@@ -689,7 +588,6 @@ body, html {
       list-style: none;
       padding-left: 0;
       margin: 0;
-      display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
     }
@@ -705,126 +603,7 @@ body, html {
       width: 100%;
       padding: 0.5rem;
       padding-top: 1.8rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       text-align: center;
-    }
-
-    .drug-category-contraindication-btn {
-      all: unset;
-      cursor: pointer;
-      -webkit-tap-highlight-color: rgba(0,0,0,0);
-      position: relative;
-      border-radius: 999vw;
-      background-color: rgba(0, 0, 0, 0.75);
-      box-shadow: -0.15em -0.15em 0.15em -0.075em rgba(5,5,5,0.25),
-                  0.0375em 0.0375em 0.0675em 0 rgba(5,5,5,0.1);
-    }
-
-    .drug-category-contraindication-btn::after {
-      content: "";
-      position: absolute;
-      z-index: 0;
-      width: calc(100% + 0.3em);
-      height: calc(100% + 0.3em);
-      top: -0.15em;
-      left: -0.15em;
-      border-radius: inherit;
-      background: linear-gradient(-135deg,
-        rgba(5,5,5,0.5),
-        transparent 20%,
-        transparent 100%);
-      filter: blur(0.0125em);
-      opacity: 0.25;
-      mix-blend-mode: multiply;
-    }
-
-    .drug-category-contraindication-btn .button-outer {
-      position: relative;
-      z-index: 1;
-      border-radius: inherit;
-      transition: box-shadow 300ms ease;
-      will-change: box-shadow;
-      box-shadow: 0 0.05em 0.05em -0.01em rgba(5,5,5,1),
-                  0 0.01em 0.01em -0.01em rgba(5,5,5,0.5),
-                  0.15em 0.3em 0.1em -0.01em rgba(5,5,5,0.25);
-    }
-
-    .drug-category-contraindication-btn:hover .button-outer {
-      box-shadow: 0 0 0 0 rgba(5,5,5,1),
-                  0 0 0 0 rgba(5,5,5,0.5),
-                  0 0 0 0 rgba(5,5,5,0.25);
-    }
-
-    .drug-category-contraindication-btn .button-inner {
-      --inset: 0.035em;
-      position: relative;
-      z-index: 1;
-      border-radius: inherit;
-      padding: 1em 1.5em;
-      background-image: linear-gradient(135deg,
-        rgba(230,230,230,1),
-        rgba(180,180,180,1));
-      transition: box-shadow 300ms ease, clip-path 250ms ease,
-                  background-image 250ms ease, transform 250ms ease;
-      will-change: box-shadow, clip-path, background-image, transform;
-      overflow: clip;
-      clip-path: inset(0 0 0 0 round 999vw);
-      box-shadow:
-        0 0 0 0 inset rgba(5,5,5,0.1),
-        -0.05em -0.05em 0.05em 0 inset rgba(5,5,5,0.25),
-        0 0 0 0 inset rgba(5,5,5,0.1),
-        0 0 0.05em 0.2em inset rgba(255,255,255,0.25),
-        0.025em 0.05em 0.1em 0 inset rgba(255,255,255,1),
-        0.12em 0.12em 0.12em inset rgba(255,255,255,0.25),
-        -0.075em -0.25em 0.25em 0.1em inset rgba(5,5,5,0.25);
-    }
-
-    .drug-category-contraindication-btn:hover .button-inner {
-      clip-path: inset(
-        clamp(1px, 0.0625em, 2px)
-        clamp(1px, 0.0625em, 2px)
-        clamp(1px, 0.0625em, 2px)
-        clamp(1px, 0.0625em, 2px)
-        round 999vw
-      );
-      box-shadow:
-        0.1em 0.15em 0.05em 0 inset rgba(5,5,5,0.75),
-        -0.025em -0.03em 0.05em 0.025em inset rgba(5,5,5,0.5),
-        0.25em 0.25em 0.2em 0 inset rgba(5,5,5,0.5),
-        0 0 0.05em 0.5em inset rgba(255,255,255,0.15),
-        0 0 0 0 inset rgba(255,255,255,1),
-        0.12em 0.12em 0.12em inset rgba(255,255,255,0.25),
-        -0.075em -0.12em 0.2em 0.1em inset rgba(5,5,5,0.25);
-    }
-
-    .drug-category-contraindication-btn .button-inner span {
-      position: relative;
-      z-index: 4;
-      font-family: "Inter", sans-serif;
-      letter-spacing: -0.05em;
-      font-weight: 500;
-      color: rgba(0, 0, 0, 0); /* gradient text, see background-clip */
-      background-image: linear-gradient(135deg,
-        rgba(25,25,25,1),
-        rgba(75,75,75,1));
-      -webkit-background-clip: text;
-      background-clip: text;
-      transition: transform 250ms ease;
-      display: block;
-      will-change: transform;
-      text-shadow: rgba(0,0,0,0.1) 0 0 0.1em;
-      -webkit-user-select: none;
-      user-select: none;
-    }
-
-    .drug-category-contraindication-btn:hover .button-inner span {
-      transform: scale(0.975);
-    }
-
-    .drug-category-contraindication-btn:active .button-inner {
-      transform: scale(0.975);
     }
 
     /* Card expand css */
@@ -838,7 +617,8 @@ body, html {
     position: relative;
 }
 
-.expand-toggle {
+.expand-toggle,
+.profile-modal-close-toggle {
   display: inline-block;
   position: absolute;
   top: 8px;
@@ -847,7 +627,8 @@ body, html {
   width: 48px;
 }
 
-.expand-toggle:before {
+.expand-toggle:before,
+.profile-modal-close-toggle::before {
   content: "";
   box-shadow: 0;
   border-radius: 50%;
@@ -862,7 +643,8 @@ body, html {
   top: 50%;
 }
 
-.expand-toggle-input {
+.expand-toggle-input,
+.profile-modal-close-toggle-input {
   opacity: 0;
   position: absolute;
   cursor: pointer;
@@ -873,7 +655,8 @@ body, html {
   top: 0;
 }
 
-.expand-toggle-button {
+.expand-toggle-button,
+.profile-modal-close-toggle-button {
   transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
   box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.4),
               inset 0 -3px 4px -1px rgba(0, 0, 0, 0.2),
@@ -893,7 +676,8 @@ body, html {
   top: 50%;
 }
 
-.expand-toggle-label {
+.expand-toggle-label,
+.profile-modal-close-toggle-label {
   transition: color 300ms ease-out;
   line-height: 48px;
   text-align: center;
@@ -908,16 +692,19 @@ body, html {
   pointer-events: none;
 }
 
-.expand-toggle-input:checked ~ .expand-toggle-label {
+.expand-toggle-input:checked ~ .expand-toggle-label,
+profile-modal-close-toggle-input:checked ~ .profile-modal-close-toggle-label {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.expand-toggle-input:active ~ .expand-toggle-label {
+.expand-toggle-input:active ~ .expand-toggle-label,
+profile-modal-close-toggle-input:active ~ .profile-modal-close-toggle-label {
   font-size: 22px;
   color: rgba(0, 0, 0, 0.45);
 }
 
-.expand-toggle-input:active ~ .expand-toggle-button {
+.expand-toggle-input:active ~ .expand-toggle-button,
+profile-modal-close-toggle-input:active ~ .profile-modal-close-toggle-button {
   filter: blur(0.5px);
   box-shadow: 0 12px 25px -4px rgba(0, 0, 0, 0.4),
               inset 0 -8px 30px 1px rgba(255, 255, 255, 0.9),
@@ -926,7 +713,8 @@ body, html {
               inset 0 0 10px 1px rgba(255, 255, 255, 0.6);
 }
 
-.expand-toggle-input:checked ~ .expand-toggle-button {
+.expand-toggle-input:checked ~ .expand-toggle-button,
+.profile-modal-close-toggle-input:checked ~ .profile-modal-close-toggle-button {
   filter: blur(0.5px);
   box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.4),
               inset 0 -8px 25px -1px rgba(255, 255, 255, 0.9),
@@ -995,6 +783,209 @@ body, html {
     border-top-left-radius: 0;
 }
 
+/* Common Contraindication CSS */
+.profile-card-container-parent{
+  width: 100%;
+  position: relative;
+  /*padding: 1.2rem;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(images/background.jpg);
+  background-size: cover;
+}
+
+.profile-card-container{
+  width: 100%;
+  overflow: visible;
+  padding: 0.5rem;
+  /*display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;*/
+}
+
+.profile-container1{
+  padding-bottom: 1rem;
+}
+
+.profile-card {
+        max-width: 800px;
+        position: relative;
+        margin: auto;
+        /*background: white;*/
+        background: transparent;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        /*padding: 2rem;*/
+        /*padding-bottom: 2.5rem;*/
+        line-height: 1.65rem;
+        z-index: 2;
+        }
+
+        .profile-card:before, .profile-card:after
+        {
+        z-index: 1;
+        position: absolute;
+        content: "";
+        bottom: 25px;
+        left: 10px;
+        width: 50%;
+        top: 80%;
+        max-width:300px;
+        background: #777;
+        -webkit-box-shadow: 0 35px 20px #777;
+        -moz-box-shadow: 0 35px 20px #777;
+        box-shadow: 0 35px 20px #777;
+        -webkit-transform: rotate(-8deg);
+        -moz-transform: rotate(-8deg);
+        -o-transform: rotate(-8deg);
+        -ms-transform: rotate(-8deg);
+        transform: rotate(-8deg);
+        }
+
+        .profile-card:after
+        {
+        -webkit-transform: rotate(8deg);
+        -moz-transform: rotate(8deg);
+        -o-transform: rotate(8deg);
+        -ms-transform: rotate(8deg);
+        transform: rotate(8deg);
+        right: 10px;
+        left: auto;
+        }
+
+        .profile-card-content{
+          background-color: white;
+          position: relative;
+          z-index: 2;
+          width: 100%;
+          padding: 2rem;
+          line-height: 1.8rem;
+        }
+
+        .profile-card .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        }
+
+        .profile-card .header img {
+        max-width: 90px;
+        border-radius: 50%;
+        }
+
+        .profile-card .header h2 {
+        font-size: 1.8rem;
+        margin: 0;
+        color: #2c3e50;
+        }
+
+        .profile-card .tabs {
+        display: flex;
+        gap: 12px;
+        margin-top: 20px;
+        flex-wrap: wrap;
+        }
+
+        .profile-card .tab {
+        cursor: pointer;
+        padding: 10px 16px;
+        background: #ecf0f1;
+        border-radius: 8px;
+        transition: 0.3s;
+        }
+
+        .profile-card .tab.active {
+        /*background: #2c3e50;*/
+        color: white;
+        }
+
+        .profile-card .tab-content {
+        display: none;
+        margin-top: 20px;
+        }
+
+        .profile-card .tab-content.active {
+        display: block;
+        }
+
+        .profile-card .accordion {
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        }
+
+        .profile-card .accordion-header {
+        /*background: #34495e;*/
+        background: rgba(206,188,155,1);
+        background: -moz-linear-gradient(-45deg, rgba(42,31,25,1) 0%, rgba(85,63,50,1) 51%, rgba(206,188,155,1) 100%);
+        background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(42,31,25,1)), color-stop(51%, rgba(85,63,50,1)), color-stop(100%, rgba(206,188,155,1)));
+        background: -webkit-linear-gradient(-45deg, rgba(42,31,25,1) 0%, rgba(85,63,50,1) 51%, rgba(206,188,155,1) 100%);
+        background: -o-linear-gradient(-45deg, rgba(42,31,25,1) 0%, rgba(85,63,50,1) 51%, rgba(206,188,155,1) 100%);
+        background: -ms-linear-gradient(-45deg, rgba(42,31,25,1) 0%, rgba(85,63,50,1) 51%, rgba(206,188,155,1) 100%);
+        background: linear-gradient(135deg, rgba(42,31,25,1) 0%, rgba(85,63,50,1) 51%, rgba(206,188,155,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2a1f19', endColorstr='#cebc9b', GradientType=1 );
+        color: white;
+        padding: 12px 16px;
+        cursor: pointer;
+        }
+
+        .profile-card .accordion-header small {
+        font-size: 0.85em;
+        color: #dcdcdc;
+        font-weight: normal;
+        }
+
+        .profile-card .accordion-body {
+        display: none;
+        padding: 16px;
+        background: #fafafa;
+        border-top: 1px solid #ccc;
+        }
+
+        .profile-card .accordion.active .accordion-body {
+        display: block;
+        }
+
+        .profileModal {
+        display: none;
+        position: fixed;
+        z-index: 10;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.6);
+        }
+
+        .profileModal-content {
+        background: white;
+        padding: 20px;
+        margin: 10% auto;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 8px;
+        position: relative;
+        }
+
+        .profileModal-close {
+        position: absolute;
+        top: 10px;
+        right: 14px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1.95rem;
+        }
+
+        .profile-card .btn{
+          margin-top: 1.8rem;
+        }
+        
+
 /* Responsive */
 @media (max-width: 768px) {
   .card-row {
@@ -1006,4 +997,5 @@ body, html {
     align-items: center;
   }
 }
+
 

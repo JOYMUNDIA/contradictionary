@@ -26,6 +26,25 @@ document.addEventListener('DOMContentLoaded', function () {
   // No need for initial visibility check; it's already handled by HTML + CSS
 });
 
+// Common Contraindication Logic
+function switchTab(tabId) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        document.querySelector(`[onclick="switchTab('${tabId}')"]`).classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    }
+
+    function toggleAccordion(header) {
+        header.parentElement.classList.toggle('active');
+    }
+
+    function openprofileModal() {
+        document.getElementById('profileModal').style.display = 'block';
+    }
+
+    function closeprofileModal() {
+        document.getElementById('profileModal').style.display = 'none';
+    }
 
 // Collapse and expand med cards
 
