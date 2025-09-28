@@ -951,6 +951,21 @@ profile-modal-close-toggle-input:active ~ .profile-modal-close-toggle-button {
         display: block;
         }
 
+        .accordion-header {
+            position: relative;
+            padding-right: 30px; /* space for the icon */
+        }
+
+        .accordion-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5em;
+            font-weight: bold;
+            pointer-events: none; /* ensures click works on the whole header */
+        }
+
         .profileModal {
         display: none;
         position: fixed;

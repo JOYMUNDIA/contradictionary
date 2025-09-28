@@ -35,7 +35,17 @@ function switchTab(tabId) {
     }
 
     function toggleAccordion(header) {
-        header.parentElement.classList.toggle('active');
+        const accordion = header.parentElement;
+        const icon = header.querySelector('.accordion-icon');
+
+        accordion.classList.toggle('active');
+
+        // Update icon
+        if (accordion.classList.contains('active')) {
+            icon.textContent = '–';
+        } else {
+            icon.textContent = '+';
+        }
     }
 
     function openprofileModal() {

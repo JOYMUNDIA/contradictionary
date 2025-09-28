@@ -212,6 +212,22 @@
         .profile-card .btn:hover {
         background: #1c5980;
         }*/
+
+        .accordion-header {
+            position: relative;
+            padding-right: 30px; /* space for the icon */
+        }
+
+        .accordion-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5em;
+            font-weight: bold;
+            pointer-events: none; /* ensures click works on the whole header */
+        }
+
     </style>
     </head>
     <body>
@@ -230,7 +246,7 @@
                 <div class="profile-card-content">
                     <div class="header">
                         <h2>🍊 Grapefruit Profile</h2>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Citrus_paradisi_%28Grapefruit%29.jpg" alt="Grapefruit">
+                        <img src="images/grapefruit.png" alt="Grapefruit">
                     </div>
 
                     <div class="tabs">
@@ -262,6 +278,7 @@
                             <div class="accordion-header" onclick="toggleAccordion(this)">
                                 Statins <br>
                                 <small>(Lipid-lowering agents)</small>
+                                <span class="accordion-icon">+</span>
                             </div>
                             <div class="accordion-body">
                                 <p><strong>Interaction:</strong> ⚠️ Increases drug levels</p><br>
@@ -275,6 +292,7 @@
                             <div class="accordion-header" onclick="toggleAccordion(this)">
                                 Calcium Channel Blockers <br>
                                 <small>(Antihypertensives)</small>
+                                <span class="accordion-icon">+</span>
                             </div>
                             <div class="accordion-body">
                                 <p><strong>Interaction:</strong> ⚠️ Increases drug levels</p><br>
@@ -288,6 +306,7 @@
                             <div class="accordion-header" onclick="toggleAccordion(this)">
                                 Benzodiazepines <br>
                                 <small>(Anxiolytics / Sedatives)</small>
+                                <span class="accordion-icon">+</span>
                             </div>
                             <div class="accordion-body">
                                 <p><strong>Interaction:</strong> ⚠️ Potentiates sedative effect</p><br>
@@ -301,6 +320,7 @@
                             <div class="accordion-header" onclick="toggleAccordion(this)">
                                 Antiarrhythmics <br>
                                 <small>(Heart rhythm medications)</small>
+                                <span class="accordion-icon">+</span>
                             </div>
                             <div class="accordion-body">
                                 <p><strong>Interaction:</strong> ⚠️ Increases risk of toxicity</p><br>
@@ -314,6 +334,7 @@
                             <div class="accordion-header" onclick="toggleAccordion(this)">
                                 Immunosuppressants <br>
                                 <small>(Used after transplants)</small>
+                                <span class="accordion-icon">+</span>
                             </div>
                             <div class="accordion-body">
                                 <p><strong>Interaction:</strong> ⚠️ Increases drug levels</p><br>
@@ -375,7 +396,25 @@
     }
 </script>
 
+<script src="script.js"></script>
+
 </body>
 </html>
 
-                    
+
+<!--
+incase i want to swap out the emoji for an actual image
+.profile-card .btn .button-inner span {
+    display: inline-flex; /* Flex for inline content */
+    align-items: center;
+    gap: 0.5em; /* spacing between icon and text */
+}
+
+.profile-card .btn .button-inner .button-icon {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+    object-fit: contain;
+}-->
