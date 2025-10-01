@@ -280,7 +280,7 @@ body, html {
   margin: 0 auto 0 auto;
   font-family: 'Lato', sans-serif;
   /*line-height: 280px;*/
-  font-size: 2.5rem;
+  font-size: 2.5em;
   padding: 1.8rem;
   text-align: center;
   text-transform: uppercase;
@@ -807,7 +807,8 @@ profile-modal-close-toggle-input:active ~ .profile-modal-close-toggle-button {
   gap: 1rem;*/
 }
 
-.profile-container1{
+.profile-container1,
+.profile-container2{
   padding-bottom: 1rem;
 }
 
@@ -994,6 +995,10 @@ profile-modal-close-toggle-input:active ~ .profile-modal-close-toggle-button {
         cursor: pointer;
         font-weight: bold;
         font-size: 1.95rem;
+        }
+
+        .profileModal-close:hover{
+          color: red;
         }
 
         .profile-card .btn{

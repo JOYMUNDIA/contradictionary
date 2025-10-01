@@ -63,28 +63,28 @@
                     </div>
 
                     <div class="tabs">
-                        <div class="tab active" onclick="switchTab('overview')">Overview</div>
-                        <div class="tab" onclick="switchTab('interactions')">Drug Interactions</div>
-                        <div class="tab" onclick="switchTab('advice')">Patient Advice</div>
+                        <div class="tab active" onclick="switchTab('overview-grapefruit', this)">Overview</div>
+                        <div class="tab" onclick="switchTab('interactions-grapefruit', this)">Drug Interactions</div>
+                        <div class="tab" onclick="switchTab('advice-grapefruit', this)">Patient Advice</div>
                     </div>
 
-                    <div id="overview" class="tab-content active">
+                    <div id="overview-grapefruit" class="tab-content active">
                         <p><strong>Scientific Name:</strong> <em>Citrus × paradisi</em></p>
                         <p><strong>Common Forms:</strong> Whole fruit, Juice</p>
                         <p><strong>Nutritional:</strong> Vitamin C, Flavonoids, Fiber</p>
                         <p><strong>Effect:</strong> Inhibits CYP3A4 enzyme → raises drug levels</p>
                         <!--<button class="btn" onclick="openprofileModal()">🔬 View Scientific Background</button>-->
-                        <button class="btn" onclick="openprofileModal()" role="button">
+                        <button class="btn" onclick="openprofileModal('profileModal-grapefruit')" role="button">
                             <div class="button-outer">
                                 <div class="button-inner">
-                                    <span><span class="emoji">🔬</span> View Scientific Background</span>
+                                    <span><span class="emoji">🧪</span> View Scientific Background</span>
                                 </div>
                             </div>
                         </button>
                     </div>
 
                     <!-- DRUG INTERACTIONS TAB (UPDATED) -->
-                    <div id="interactions" class="tab-content">
+                    <div id="interactions-grapefruit" class="tab-content">
 
                         <!-- Statins -->
                         <div class="accordion">
@@ -158,7 +158,7 @@
 
                     </div>
 
-                    <div id="advice" class="tab-content">
+                    <div id="advice-grapefruit" class="tab-content">
                         <ul>
                         <li>🚫 Avoid grapefruit with medications marked "Do not take with grapefruit."</li>
                         <li>📅 Effect can last up to 72 hours after eating grapefruit.</li>
@@ -167,11 +167,12 @@
                         </ul>
                     </div>
                 </div>
+            </div>
 
-                <!-- profileModal for scientific explanation -->
-                <div id="profileModal" class="profileModal">
+            <!-- profileModal for scientific explanation -->
+                <div class="profileModal" id="profileModal-grapefruit">
                     <div class="profileModal-content">
-                        <span class="profileModal-close" onclick="closeprofileModal()">×</span>
+                        <span class="profileModal-close" onclick="closeprofileModal(this)">×</span>
                         <h3>🧪 Scientific Background</h3><br>
                         <p>Grapefruit contains <strong>furanocoumarins</strong> that irreversibly inhibit <strong>intestinal CYP3A4</strong>, an enzyme responsible for breaking down many drugs.</p>
                         <p>This increases <strong>systemic drug exposure</strong>, leading to higher plasma levels and increased risk of adverse effects.</p>
@@ -182,8 +183,153 @@
     <br><br>
 
     <!-- Profile card 2 -->
+    <!-- Profile card: Warfarin -->
+        <div class="profile-card-container profile-container2">
+                <div class="profile-card">
+                    <div class="profile-card-content">
+                        <div class="header">
+                            <h2>Warfarin Profile</h2>
+                            <img src="images/drug profile image.png" alt="some capsules and tablets">
+                        </div>
+
+                        <div class="tabs">
+                            <div class="tab active" onclick="switchTab('overview-warfarin', this)">Overview</div>
+                            <div class="tab" onclick="switchTab('interactions-warfarin', this)">Food Interactions</div>
+                            <div class="tab" onclick="switchTab('advice-warfarin', this)">Patient Advice</div>
+                        </div>
+
+                        <div id="overview-warfarin" class="tab-content active">
+                            <p><strong>Scientific Name:</strong> <em>Warfarin</em></p>
+                            <p><strong>Common Brand Names:</strong> Coumadin, Jantoven</p>
+                            <p><strong>System Category:</strong> Cardiovascular System</p>
+                            <p><strong>Drug Class:</strong> Anticoagulant (blood thinner)</p>
+                            <p><strong>Common Uses:</strong> Prevent or treat blood clots (DVT, PE), AFib, stroke prevention</p>
+
+                            <button class="btn" onclick="openprofileModal('profileModal-warfarin')" role="button">
+                                <div class="button-outer">
+                                    <div class="button-inner">
+                                        <span><span class="emoji">🧪</span> View Scientific Background</span>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+
+                        <!-- FOOD INTERACTIONS TAB -->
+                        <div id="interactions-warfarin" class="tab-content">
+
+                            <!-- Leafy Greens -->
+                            <div class="accordion">
+                                <div class="accordion-header" onclick="toggleAccordion(this)">
+                                    Leafy Green Vegetables <br>
+                                    <small>(Spinach, Kale, Broccoli, Collard Greens)</small>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-body">
+                                    <p><strong>Interaction:</strong> ⚠️ Reduces Warfarin’s effect</p><br>
+                                    <p><strong>Layman Explanation:</strong> These veggies are healthy, but high in vitamin K, which makes warfarin less effective. Don’t avoid them — just eat them in consistent amounts.</p><br>
+                                    <p><strong>Scientific Explanation:</strong> Warfarin inhibits vitamin K–dependent clotting factors. High vitamin K intake can bypass this effect, decreasing anticoagulation and increasing clot risk. INR levels may fluctuate with inconsistent intake.</p><br>
+                                </div>
+                            </div>
+
+                            <!-- Fruits -->
+                            <div class="accordion">
+                                <div class="accordion-header" onclick="toggleAccordion(this)">
+                                    Certain Fruits <br>
+                                    <small>(Avocado, Kiwi, Cranberry)</small>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-body">
+                                    <p><strong>Interaction:</strong> 🟡 Possible interaction</p><br>
+                                    <p><strong>Layman Explanation:</strong> Avocados have moderate vitamin K. Cranberry juice may increase bleeding risk, though studies are mixed.</p><br>
+                                    <p><strong>Scientific Explanation:</strong> Cranberry may inhibit CYP450 enzymes, raising warfarin levels. Avocados contribute moderate vitamin K intake, which could reduce anticoagulant effect if consumed in large or variable amounts.</p><br>
+                                </div>
+                            </div>
+
+                            <!-- Drinks -->
+                            <div class="accordion">
+                                <div class="accordion-header" onclick="toggleAccordion(this)">
+                                    Alcohol & Green Tea <br>
+                                    <small>(Beverages)</small>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-body">
+                                    <p><strong>Interaction:</strong> ⚠️ Alters effect unpredictably</p><br>
+                                    <p><strong>Layman Explanation:</strong> These drinks can make warfarin act stronger or weaker depending on quantity. Be cautious with intake.</p><br>
+                                    <p><strong>Scientific Explanation:</strong> Alcohol impairs liver metabolism of warfarin, potentially increasing INR and bleeding risk. Green tea contains vitamin K and may interfere with warfarin's mechanism.</p><br>
+                                </div>
+                            </div>
+
+                            <!-- Sauces / Condiments -->
+                            <div class="accordion">
+                                <div class="accordion-header" onclick="toggleAccordion(this)">
+                                    Herbal Sauces & Condiments <br>
+                                    <small>(Soy Sauce, Mayo, Herbal Dips)</small>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-body">
+                                    <p><strong>Interaction:</strong> ⚠️ Varies</p><br>
+                                    <p><strong>Layman Explanation:</strong> Some sauces may have hidden ingredients like herbs or fermented components that interact with warfarin.</p><br>
+                                    <p><strong>Scientific Explanation:</strong> Herbal compounds may modulate CYP enzymes; fermented condiments may contain vitamin K or interfere with metabolism pathways, altering INR unpredictably.</p><br>
+                                </div>
+                            </div>
+
+                            <!-- Chocolate -->
+                            <div class="accordion">
+                                <div class="accordion-header" onclick="toggleAccordion(this)">
+                                    Dark Chocolate <br>
+                                    <small>(Flavonoid-rich treat)</small>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-body">
+                                    <p><strong>Interaction:</strong> 🟡 Mild caution</p><br>
+                                    <p><strong>Layman Explanation:</strong> Dark chocolate may mildly affect warfarin if consumed in large amounts, but small amounts are typically fine.</p><br>
+                                    <p><strong>Scientific Explanation:</strong> Flavonoids in chocolate may influence platelet activity or liver enzymes. Vitamin K content is low but not negligible. Monitor if intake changes.</p><br>
+                                </div>
+                            </div>
+
+                            <!-- Liver -->
+                            <div class="accordion">
+                                <div class="accordion-header" onclick="toggleAccordion(this)">
+                                    Animal Liver <br>
+                                    <small>(Beef, Chicken Liver)</small>
+                                    <span class="accordion-icon">+</span>
+                                </div>
+                                <div class="accordion-body">
+                                    <p><strong>Interaction:</strong> ⚠️ High vitamin K</p><br>
+                                    <p><strong>Layman Explanation:</strong> Liver is very high in vitamin K and can interfere with warfarin. Best to avoid.</p><br>
+                                    <p><strong>Scientific Explanation:</strong> Animal liver contains dense concentrations of vitamin K, especially if the animal consumed leafy feed. This can significantly reduce warfarin efficacy and alter INR control.</p><br>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="advice-warfarin" class="tab-content">
+                            <ul>
+                                <li>📊 Monitor INR regularly and report large diet changes to your doctor.</li>
+                                <li>🍽️ Keep intake of vitamin K–rich foods consistent — don’t suddenly eat more or less.</li>
+                                <li>🧃 Limit cranberry juice and alcohol unless cleared by your provider.</li>
+                                <li>📚 Read labels on herbal teas, sauces, and supplements — they can alter drug metabolism.</li>
+                                <li>💊 Consult a pharmacist or doctor before adding new supplements or making dietary changes.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- profileModal for scientific explanation -->
+                    <div class="profileModal" id="profileModal-warfarin">
+                        <div class="profileModal-content">
+                            <span class="profileModal-close" onclick="closeprofileModal(this)">×</span>
+                            <h3>🧪 Scientific Background</h3><br>
+                            <p>Warfarin works by inhibiting vitamin K–dependent clotting factors, which are essential for normal blood clotting.</p><br>
+                            <p>Vitamin K intake from diet (especially from leafy greens or liver) can reduce warfarin’s effect, while inconsistent intake can cause INR fluctuations.</p><br>
+                            <p>Other compounds (e.g., alcohol, cranberry juice, herbal products) can alter liver enzyme activity, affecting warfarin metabolism and therapeutic control.</p><br>
+                            <p>Maintaining a steady dietary pattern is essential to minimize risk and keep INR within therapeutic range.</p><br>
+                        </div>
+                    </div>
+        </div>
+
+    </div>
     
-        
     <!--End of Common Contraindication cards-->
 
     <div class="choice-category-section">

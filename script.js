@@ -27,37 +27,60 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Common Contraindication Logic
-function switchTab(tabId) {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-        document.querySelector(`[onclick="switchTab('${tabId}')"]`).classList.add('active');
-        document.getElementById(tabId).classList.add('active');
+// TABS: Switch active tab within the same profile card
+function switchTab(tabId, el) {
+    const card = el.closest('.profile-card');
+    const tabs = card.querySelectorAll('.tab');
+    const contents = card.querySelectorAll('.tab-content');
+
+    tabs.forEach(t => t.classList.remove('active'));
+    contents.forEach(c => c.classList.remove('active'));
+
+    el.classList.add('active');
+    card.querySelector(`#${tabId}`).classList.add('active');
+}
+
+// ACCORDION: Toggle accordion section within a card
+function toggleAccordion(header) {
+    const accordion = header.parentElement;
+    const icon = header.querySelector('.accordion-icon');
+
+    accordion.classList.toggle('active');
+
+    // Icon toggle
+    icon.textContent = accordion.classList.contains('active') ? '–' : '+';
+}
+
+// MODAL: Open modal relative to the button clicked
+function openprofileModal(id) {
+    const modal = document.getElementById(id);
+    if (modal) {
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
     }
+}
 
-    function toggleAccordion(header) {
-        const accordion = header.parentElement;
-        const icon = header.querySelector('.accordion-icon');
+// MODAL: Close modal from inside the modal content
+function closeprofileModal(el) {
+    const modal = el.closest('.profileModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
 
-        accordion.classList.toggle('active');
-
-        // Update icon
-        if (accordion.classList.contains('active')) {
-            icon.textContent = '–';
-        } else {
-            icon.textContent = '+';
+// MODAL: Close modal when clicking outside the modal
+window.addEventListener('click', function (event) {
+    const modals = document.querySelectorAll('.profileModal');
+    modals.forEach(modal => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
         }
-    }
+    });
+});
 
-    function openprofileModal() {
-        document.getElementById('profileModal').style.display = 'block';
-    }
-
-    function closeprofileModal() {
-        document.getElementById('profileModal').style.display = 'none';
-    }
 
 // Collapse and expand med cards
-
   
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.expandable-card').forEach(card => {
