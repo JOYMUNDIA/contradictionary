@@ -451,7 +451,7 @@ body, html {
 
 /* Food Category Css */
 .food-card-row {
-      padding: 1rem;
+      padding: 2rem;
       justify-content: center;
     }
 
@@ -524,6 +524,7 @@ body, html {
 
 .drug-card-row {
       justify-content: center;
+      padding: 2rem;
     }
 
     .drug-system-card {
@@ -1061,4 +1062,136 @@ profile-modal-close-toggle-input:active ~ .profile-modal-close-toggle-button {
   }
 }
 
+/* Footer Section */
+                                    
+footer {
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: black;
+    padding: 20px 20px;
+    padding-top: 2rem;
+    text-align: center;
+    /*margin-top: 50px;*/
+}
 
+footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer p {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+footer .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer .footer-links a {
+    margin: 10px 0;
+}
+/* Button Styling */
+
+footer .button {
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 16px;
+    border: none;
+    padding: 2px;
+    background: radial-gradient(circle 80px at 80% -10%, #ffffff, #181b1b);
+    position: relative;
+    transition: background 0.3s, transform 0.3s;
+}
+
+footer .button:hover {
+    transform: scale(0.98);
+}
+
+footer .button::after {
+    content: "";
+    position: absolute;
+    width: 65%;
+    height: 60%;
+    border-radius: 120px;
+    top: 0;
+    right: 0;
+    box-shadow: 0 0 20px #ffffff38;
+    z-index: -1;
+    transition: box-shadow 0.3s;
+}
+
+footer .button:hover::after {
+    box-shadow: 0 0 10px #ffffff18;
+}
+
+footer .blob1 {
+    position: absolute;
+    width: 70px;
+    height: 100%;
+    border-radius: 16px;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(circle 60px at 0% 100%, #3fe9ff, #0000ff80, transparent);
+    box-shadow: -10px 10px 30px #0051ff2d;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+footer .button:hover .blob1 {
+    box-shadow: -5px 5px 20px #000;
+}
+
+footer .inner {
+    padding: 14px 25px;
+    border-radius: 14px;
+    color: #fff;
+    z-index: 3;
+    position: relative;
+    background: radial-gradient(circle 80px at 80% -50%, #777777, #0f1111);
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+    /* Aligns the icon and text */
+}
+
+footer .button:hover .inner {
+    background: radial-gradient(circle 80px at 80% -50%, #333333, #0f0f0f);
+}
+
+footer .inner i {
+    font-size: 1rem;
+    /* Adjust icon size */
+}
+
+footer .inner::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 14px;
+    background: radial-gradient(circle 60px at 0% 100%, #00e1ff1a, #0000ff11, transparent);
+    position: absolute;
+    transition: opacity 0.3s;
+}
+
+footer .button:hover .inner::before {
+    opacity: 0;
+}
+/* Mobile responsiveness for footer */
+
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 20px;
+    }
+    footer .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    footer p {
+        font-size: 0.9rem;
+    }
+}
