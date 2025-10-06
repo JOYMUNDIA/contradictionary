@@ -1195,3 +1195,16 @@ footer .button:hover .inner::before {
         font-size: 0.9rem;
     }
 }
+
+/* Dynamic Profile Card styling */
+.dynamic-profile-card-container{
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url(images/background.jpg);
+  background-size: cover;
+  min-height: 100vh;
+}
