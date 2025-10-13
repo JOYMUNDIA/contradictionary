@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+     <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="dynamic-profile-card-container">
+        <!-- Profile card: Clopidogrel -->
+        <div class="profile-card-container profile-container2">
+            <div class="profile-card">
+                <div class="profile-card-content">
+                    <div class="header">
+                        <h2>Clopidogrel Profile</h2>
+                        <img src="images/drug profile image.png" alt="clopidogrel pills">
+                    </div>
+
+                    <div class="tabs">
+                        <div class="tab active" onclick="switchTab('overview-clopidogrel', this)">Overview</div>
+                        <div class="tab" onclick="switchTab('interactions-clopidogrel', this)">Food Interactions</div>
+                        <div class="tab" onclick="switchTab('advice-clopidogrel', this)">Patient Advice</div>
+                        <div class="tab" onclick="switchTab('moa-clopidogrel', this)">Mechanism of Action</div>
+                    </div>
+
+                    <!-- OVERVIEW TAB -->
+                    <div id="overview-clopidogrel" class="tab-content active">
+                        <p><strong>Scientific Name:</strong> <em>Clopidogrel bisulfate</em></p>
+                        <p><strong>Common Brand Names:</strong> Plavix, Clopilet, Grepid</p>
+                        <p><strong>System Category:</strong> Cardiovascular System</p>
+                        <p><strong>Drug Class:</strong> Antiplatelet agent (P2Y12 receptor inhibitor)</p>
+                        <p><strong>Common Uses:</strong> Prevention of atherothrombotic events such as stroke, myocardial infarction, and peripheral arterial disease</p>
+                        <p><strong>Pharmacokinetics:</strong> Prodrug activated by CYP2C19; high protein binding (~94%); half-life ~6 hours</p>
+
+                        <button class="btn" onclick="openprofileModal('profileModal-clopidogrel')" role="button">
+                            <div class="button-outer">
+                                <div class="button-inner">
+                                    <span><span class="emoji">🧪</span> View Scientific Background</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- FOOD INTERACTIONS TAB -->
+                    <div id="interactions-clopidogrel" class="tab-content">
+                        <!-- Fruits -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                Fruits <br>
+                                <small>(Grapefruit)</small>
+                                <span class="accordion-icon">+</span>
+                            </div>
+                            <div class="accordion-body">
+                                <p><strong>Interaction:</strong> ⚠️ Avoid grapefruit juice</p><br>
+                                <p><strong>Layman Explanation:</strong> Grapefruit juice can reduce clopidogrel’s effectiveness, increasing risk of clots.</p><br>
+                                <p><strong>Scientific Explanation:</strong> Grapefruit juice inhibits CYP3A4 enzymes that activate clopidogrel, leading to decreased antiplatelet effect.</p><br>
+                            </div>
+                        </div>
+
+                        <!-- Drinks -->
+                        <div class="accordion">
+                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                Drinks <br>
+                                <small>(Alcohol)</small>
+                                <span class="accordion-icon">+</span>
+                            </div>
+                            <div class="accordion-body">
+                                <p><strong>Interaction:</strong> ⚠️ Increased bleeding risk</p><br>
+                                <p><strong>Layman Explanation:</strong> Alcohol can increase bleeding risk when taking clopidogrel.</p><br>
+                                <p><strong>Scientific Explanation:</strong> Alcohol impairs platelet function and coagulation, potentiating clopidogrel’s bleeding risk.</p><br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PATIENT ADVICE TAB -->
+                    <div id="advice-clopidogrel" class="tab-content">
+                        <ul>
+                            <li>💊 Take clopidogrel exactly as prescribed, usually once daily with or without food.</li>
+                            <li>⚠️ Avoid grapefruit juice to maintain drug effectiveness.</li>
+                            <li>🩸 Report any unusual bleeding, bruising, or signs of hemorrhage immediately.</li>
+                            <li>🚫 Avoid excessive alcohol to reduce bleeding risk.</li>
+                            <li>🩺 Inform healthcare providers about all medications, including OTC and herbal supplements.</li>
+                            <li>🧪 Clopidogrel requires metabolic activation by CYP2C19; genetic variations may affect response.</li>
+                        </ul>
+                    </div>
+
+                    <!-- MECHANISM OF ACTION TAB -->
+                    <div id="moa-clopidogrel" class="tab-content">
+                        <h3>Mechanism of Action</h3>
+
+                        <p><strong>Layman Explanation:</strong></p>
+                        <p>
+                            Clopidogrel helps prevent harmful blood clots by stopping platelets from sticking together inside your blood vessels.
+                        </p>
+                        <br>
+
+                        <p><strong>Scientific Explanation:</strong></p>
+                        <p>
+                            Clopidogrel is a prodrug metabolized mainly by hepatic CYP2C19 to its active thiol metabolite. This active form irreversibly inhibits the P2Y12 ADP receptor on platelet surfaces, preventing ADP-mediated activation and aggregation of platelets. This antiplatelet effect reduces the risk of arterial thrombosis. Clopidogrel has a plasma half-life of about 6 hours and is highly protein bound (~94%). 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

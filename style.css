@@ -877,7 +877,7 @@ profile-modal-close-toggle-input:active ~ .profile-modal-close-toggle-button {
 
         .profile-card .header img {
         max-width: 90px;
-        border-radius: 50%;
+        /*border-radius: 50%;*/
         }
 
         .profile-card .header h2 {
