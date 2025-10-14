@@ -1208,3 +1208,47 @@ footer .button:hover .inner::before {
   background-size: cover;
   min-height: 100vh;
 }
+
+/* Dynamic Category styling */
+.dynamic-category .header-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.dynamic-category .header-bar img{
+  max-width: 7rem;
+  padding: 1rem;
+  justify-self: flex-start;
+}
+
+.dynamic-category .header-bar .header-title{
+  justify-self: center;
+}
+
+.dynamic-category .grey-card{
+  background-color: rgba(230, 230, 230, 0.5);
+}
+
+.dynamic-category .grey-card .searchbar{
+  padding-bottom: 2rem;
+  width: 98%;
+}
+
+.dynamic-category .grey-card .card-row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.dynamic-category .grey-card .card-row .mini-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 18rem;
+  padding: 1rem;
+}
