@@ -1224,7 +1224,13 @@ footer .button:hover .inner::before {
 }
 
 .dynamic-category .header-bar .header-title{
-  justify-self: center;
+  text-align: center;
+}
+
+@media (max-width: 750px) {
+  .dynamic-category .header-bar {
+    flex-direction: column;
+  }
 }
 
 .dynamic-category .grey-card{
