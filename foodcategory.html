@@ -26,13 +26,14 @@
 
                         <div class="searchbar">
                             <div class="HeroSearchInputContainer food-hero-search-input-container">
-                                <input placeholder="Search by Food.." id="foodSearchinput" class="input" name="text" type="text">
+                                <input placeholder="🔍︎ Search by Food.." id="foodSearchinput" class="input" name="text" type="text">
                             </div>
                         </div>
 
                         <!-- Dairy Profile Card -->
-                         <div class="overview-card">
+                        <div class="overview-card">
                             <!-- Profile card 2 -->
+
                             <div class="profile-card">
                                 <div class="profile-card-content">
                                     <div class="header">
@@ -216,23 +217,8 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- profileModal for scientific explanation -->
-                            <div class="profileModal" id="profileModal-dairy">
-                                <div class="profileModal-content">
-                                    <span class="profileModal-close" onclick="closeprofileModal(this)">
-                                        <span class="close-styling-class">×</span>
-                                    </span>
-                                    <h3>🧪 Scientific Background</h3><br>
-                                    <p>Dairy products contain high levels of divalent cations such as calcium and magnesium.</p>
-                                    <p>These ions can chelate with drugs in the gastrointestinal tract, forming non-absorbable complexes.</p>
-                                    <p>This process impairs drug absorption and may reduce clinical effectiveness.</p>
-                                    <p>Proper dose timing is essential to avoid therapeutic failure.</p>
-                                </div>
-                            </div>
-
-                         </div>
-
+                        </div>
+                        
                         <div class="card-row">
                             <div class="food-category-card">
                                 <div class="card-image">
@@ -242,13 +228,15 @@
                                     <h1>Milk</h1>
                                 </div>
                                 <div class="button-container">
-                                    <button class="food-category-contraindication-btn" role="button">
-                                        <div class="button-outer">
-                                            <div class="button-inner">
-                                                <span>Learn More...</span>
+                                    <a href="fooddynamicprofilecard.html">
+                                        <button class="food-category-contraindication-btn" role="button">
+                                            <div class="button-outer">
+                                                <div class="button-inner">
+                                                    <span>Learn More...</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </button>
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
 
@@ -287,9 +275,7 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
-
-                        
+                        </div>    
 
                     </div>
                 </div>
@@ -299,6 +285,21 @@
             <!--closing off the hero section-->
         </div>
     </div>
+
+    <!-- profileModal for scientific explanation -->
+        <div class="profileModal" id="profileModal-dairy">
+            <div class="profileModal-content">
+                <span class="profileModal-close" onclick="closeprofileModal(this)">
+                    <span class="close-styling-class">×</span>
+                </span>
+                <h3>🧪 Scientific Background</h3><br>
+                <p>Dairy products contain high levels of divalent cations such as calcium and magnesium.</p>
+                <p>These ions can chelate with drugs in the gastrointestinal tract, forming non-absorbable complexes.</p>
+                <p>This process impairs drug absorption and may reduce clinical effectiveness.</p>
+                <p>Proper dose timing is essential to avoid therapeutic failure.</p>
+            </div>
+        </div>
+            
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contradictionary food</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background">
+        <div class="main-container dynamic-category">
+            <!-- Black Header -->
+            <div class="header-bar">
+                <img src="images/vegetables food category.png" alt="Vegetables" />
+                <h1 class="header-title">Vegetables</h1>
+            </div>
+
+             <!-- Subtitle -->
+            <div class="sub-title">Select an Item to learn more...</div>
+
+            <!-- Cards Row -->
+            <div class="card-row">
+                <!-- Card 1 -->
+                <div class="card grey-card">
+                    <div class="card-content">
+
+                        <div class="searchbar">
+                            <div class="HeroSearchInputContainer food-hero-search-input-container">
+                                <input placeholder="🔍︎ Search by Food.." id="foodSearchinput" class="input" name="text" type="text">
+                            </div>
+                        </div>
+
+                        <!-- Dairy Profile Card -->
+                        <div class="overview-card">
+                            <!-- Profile card 2 -->
+
+                            <div class="profile-card">
+                                <div class="profile-card-content">
+                                    <div class="header">
+                                        <h2>Vegetables Overview Profile</h2>
+                                        <img src="images/vegetables food category.png" alt="Vegetables" />
+                                    </div>
+
+                                    <div class="tabs">
+                                        <div class="tab active" onclick="switchTab('overview-vegetables', this)">Overview</div>
+                                    </div>
+
+                                    <!-- Overview -->
+                                    <div id="overview-vegetables" class="tab-content active">
+                                        <p><strong>Information Unavailable</strong></p>
+                                        <p>We currently do not have any records under this category.</p>
+                                        <p>Our database undergoes regular updates, so we invite you to check back shortly for the latest information.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        
+            <!--closing off the hero section-->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

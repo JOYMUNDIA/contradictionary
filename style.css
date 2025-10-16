@@ -520,6 +520,11 @@ body, html {
       text-align: center;
     }
 
+    .food-category-card .button-container a,
+    .drug-system-card .button-container a{
+      text-decoration: none;
+    }
+
 /* DRUG CATEGORY CSS - Mirrors Food Card Styles */
 
 .drug-card-row {
@@ -1210,11 +1215,16 @@ footer .button:hover .inner::before {
 }
 
 /* Dynamic Category styling */
+
 .dynamic-category .header-bar{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.dynamic-category, .dynamic-category .card-row{
+  position: relative;
 }
 
 .dynamic-category .header-bar img{
@@ -1235,16 +1245,19 @@ footer .button:hover .inner::before {
 
 .dynamic-category .grey-card{
   background-color: rgba(230, 230, 230, 0.5);
+  position: relative;
 }
 
 .dynamic-category .grey-card .searchbar{
   padding-bottom: 2rem;
   width: 98%;
+  position: relative;
 }
 
 .dynamic-category .grey-card .overview-card{
   padding: 1rem;
   padding-bottom: 2rem;
+  position: relative;
 }
 
 .dynamic-category .grey-card .overview-card .disclaimer-box{
@@ -1255,6 +1268,20 @@ footer .button:hover .inner::before {
   font-style: italic;
   background-color: #f9f9f9;
 }
+
+/*.dynamic-category .grey-card .overview-card .profileModal{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.dynamic-category .grey-card .overview-card .profileModal .profileModal-content{
+  position: relative;
+  top: 30rem;
+}*/
+
 
 .dynamic-category .grey-card .card-row{
   display: flex;
