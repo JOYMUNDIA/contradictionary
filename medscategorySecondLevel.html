@@ -33,227 +33,134 @@
                         <!-- Anticoagulants Profile Card -->
                         <div class="overview-card">
                             <!-- Profile card 2 -->
+                             <div class="profile-card">
+                                <div class="profile-card-content">
+                                    <div class="header">
+                                        <h2>Anticoagulants Profile</h2>
+                                        <img src="images/cardiovascular_system.png" alt="Heart" />
+                                    </div>
 
-                            <div class="profile-card">
-                                    <div class="profile-card-content">
-                                        <div class="header">
-                                            <h2>Anticoagulants Profile</h2>
-                                            <img src="images/cardiovascular_system.png" alt="Heart" />
-                                        </div>
+                                    <div class="tabs">
+                                        <div class="tab active" onclick="switchTab('overview-anticoagulant', this)">Overview</div>
+                                        <div class="tab" onclick="switchTab('interactions-anticoagulant', this)">Food & Supplement Interactions</div>
+                                        <div class="tab" onclick="switchTab('sideeffects-anticoagulant', this)">Side Effects & Contraindications</div>
+                                        <div class="tab" onclick="switchTab('advice-anticoagulant', this)">Patient Advice</div>
+                                        <div class="tab" onclick="switchTab('moa-anticoagulant', this)">Mechanism of Action</div>
+                                    </div>
 
-                                        <div class="tabs">
-                                            <div class="tab active" onclick="switchTab('overview-anticoag', this)">Overview</div>
-                                            <div class="tab" onclick="switchTab('interactions-anticoag', this)">Food & Supplement Interactions</div>
-                                            <div class="tab" onclick="switchTab('sideeffects-anticoag', this)">Side Effects & Contraindications</div>
-                                            <div class="tab" onclick="switchTab('advice-anticoag', this)">Patient Advice</div>
-                                            <div class="tab" onclick="switchTab('moa-anticoag', this)">Mechanism of Action</div>
-                                        </div>
+                                    <!-- OVERVIEW -->
+                                    
+                                    <div id="overview-anticoagulant" class="tab-content active">
+                                        <p><strong>Scientific Names:</strong> <em>Warfarin, Apixaban, Rivaroxaban, Edoxaban, Dabigatran</em></p>
+                                        
+                                        <p><strong>Common Brand Names:</strong></p>
+                                        <ul>
+                                            <li>Coumadin <em>(Warfarin)</em></li>
+                                            <li>Eliquis <em>(Apixaban)</em></li>
+                                            <li>Xarelto <em>(Rivaroxaban)</em></li>
+                                            <li>Lixiana / Savaysa <em>(Edoxaban)</em></li>
+                                            <li>Pradaxa <em>(Dabigatran)</em></li>
+                                        </ul>
 
-                                        <!-- OVERVIEW TAB -->
-                                        <div id="overview-anticoag" class="tab-content active">
-                                            <p><strong>Scientific Names:</strong> <em>Warfarin, Apixaban, Rivaroxaban, Dabigatran, Edoxaban, Clopidogrel, Ticagrelor, Aspirin</em></p>
-                                            <p><strong>Common Brand Names:</strong> Coumadin (Warfarin), Eliquis (Apixaban), Xarelto (Rivaroxaban), Pradaxa (Dabigatran), Savaysa (Edoxaban), Plavix (Clopidogrel), Brilinta (Ticagrelor), Bayer Aspirin</p>
-                                            <p><strong>System Category:</strong> Cardiovascular System</p>
-                                            <p><strong>Common Uses:</strong> Prevention and treatment of venous thromboembolism (DVT, PE), stroke prevention in atrial fibrillation, acute coronary syndrome, post-stenting thrombosis prevention, myocardial infarction</p>
-                                            <button class="btn" onclick="openprofileModal('profileModal-anticoag')" role="button">
-                                                <div class="button-outer">
-                                                    <div class="button-inner">
+                                        <p><strong>System Category:</strong> Hematologic / Cardiovascular System</p>
+
+                                        <p><strong>Common Uses:</strong> Prevention and treatment of deep vein thrombosis (DVT), pulmonary embolism (PE), stroke prevention in atrial fibrillation (AF), post-surgical clot prevention</p>
+
+                                        <button class="btn" onclick="openprofileModal('profileModal-anticoagulant')" role="button">
+                                            <div class="button-outer">
+                                                <div class="button-inner">
                                                     <span><span class="emoji">🧪</span> View Scientific Background</span>
-                                                    </div>
                                                 </div>
-                                            </button>
+                                            </div>
+                                        </button>
+                                    </div>
+
+                                    <!-- INTERACTIONS -->
+                                    <div id="interactions-anticoagulant" class="tab-content">
+                                        <div class="accordion">
+                                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                                Leafy Greens <br><small>(Spinach, Kale, Broccoli)</small>
+                                                <span class="accordion-icon">+</span>
+                                            </div>
+                                            <div class="accordion-body">
+                                                <p><strong>Interaction:</strong> ⚠️ May reduce warfarin effectiveness</p>
+                                                <p><strong>Layman Explanation:</strong> Foods high in vitamin K can reduce the blood-thinning effect of warfarin.</p>
+                                                <p><strong>Scientific Explanation:</strong> Vitamin K intake competes with warfarin’s inhibition of clotting factor synthesis, reducing INR.</p>
+                                                <p><strong>Clinical Advice:</strong> Maintain consistent intake of vitamin K–rich foods; avoid sudden increases or decreases.</p>
+                                            </div>
                                         </div>
 
-                                        <!-- FOOD & SUPPLEMENT INTERACTIONS TAB -->
-                                        <div id="interactions-anticoag" class="tab-content">
-
-                                            <!-- Vitamin K Rich Foods -->
-                                            <div class="accordion">
-                                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                                    Vitamin K Rich Foods <br>
-                                                    <small>(Liver, Spinach, Kale, Broccoli, Green Tea)</small>
-                                                    <span class="accordion-icon">+</span>
-                                                </div>
-                                                <div class="accordion-body">
-                                                    <p><strong>Interaction:</strong> ⚠️ Major interaction with warfarin</p>
-                                                    <p><strong>Layman Explanation:</strong> Foods high in vitamin K, like liver and leafy greens, can reduce the effectiveness of warfarin by promoting blood clotting.</p>
-                                                    <p><strong>Scientific Explanation:</strong> Vitamin K is a cofactor for γ-glutamyl carboxylase, activating clotting factors II, VII, IX, and X. Warfarin inhibits vitamin K recycling, so variability in intake can cause INR fluctuations.</p>
-                                                    <p><strong>Clinical Advice:</strong> Maintain consistent vitamin K intake to stabilize anticoagulant effect.</p>
-                                                </div>
+                                        <div class="accordion">
+                                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                                NSAIDs <br><small>(Ibuprofen, Naproxen)</small>
+                                                <span class="accordion-icon">+</span>
                                             </div>
-
-                                            <!-- Vitamin E Rich Foods -->
-                                            <div class="accordion">
-                                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                                    Vitamin E Rich Foods <br>
-                                                    <small>(Nuts, Seeds, Spinach, Vegetable Oils)</small>
-                                                    <span class="accordion-icon">+</span>
-                                                </div>
-                                                <div class="accordion-body">
-                                                    <p><strong>Interaction:</strong> ⚠️ Potential mild increase in bleeding risk</p>
-                                                    <p><strong>Layman Explanation:</strong> Vitamin E in nuts and seeds can thin the blood slightly, so large amounts may increase bleeding risk when combined with blood thinners.</p>
-                                                    <p><strong>Scientific Explanation:</strong> Vitamin E exhibits antiplatelet activity by inhibiting platelet aggregation and can antagonize vitamin K-dependent coagulation at high doses (>400 IU/day), potentiating anticoagulant effects.</p>
-                                                    <p><strong>Clinical Advice:</strong> Moderate dietary intake is safe; caution advised with high-dose vitamin E supplements during anticoagulant therapy.</p>
-                                                </div>
+                                            <div class="accordion-body">
+                                                <p><strong>Interaction:</strong> ⚠️ Increased bleeding risk</p>
+                                                <p><strong>Layman Explanation:</strong> NSAIDs can irritate the stomach lining and increase bleeding when combined with anticoagulants.</p>
+                                                <p><strong>Scientific Explanation:</strong> NSAIDs inhibit platelet function and compromise mucosal integrity, compounding anticoagulant effects.</p>
+                                                <p><strong>Clinical Advice:</strong> Avoid unless specifically directed; consider alternatives like acetaminophen.</p>
                                             </div>
-
-                                            <!-- Omega-3 Fatty Acids -->
-                                            <div class="accordion">
-                                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                                    Omega-3 Fatty Acids <br>
-                                                    <small>(Fatty Fish, Flaxseeds, Walnuts)</small>
-                                                    <span class="accordion-icon">+</span>
-                                                </div>
-                                                <div class="accordion-body">
-                                                    <p><strong>Interaction:</strong> ⚠️ Mild to moderate increase in bleeding risk with high doses</p>
-                                                    <p><strong>Layman Explanation:</strong> Fish oils and flaxseeds can help thin your blood; large amounts might increase bleeding risk especially if you're on blood thinners.</p>
-                                                    <p><strong>Scientific Explanation:</strong> Omega-3 fatty acids reduce platelet aggregation via decreased thromboxane A2 synthesis and alter eicosanoid metabolism, potentially enhancing anticoagulant and antiplatelet effects.</p>
-                                                    <p><strong>Clinical Advice:</strong> Dietary intake is generally safe; high-dose supplements (>3 g/day) should be used with caution and under medical supervision.</p>
-                                                </div>
-                                            </div>
-
-                                            <!-- Flavonoids & Polyphenols -->
-                                            <div class="accordion">
-                                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                                    Flavonoids & Polyphenols <br>
-                                                    <small>(Dark Chocolate, Berries, Tea, Nuts)</small>
-                                                    <span class="accordion-icon">+</span>
-                                                </div>
-                                                <div class="accordion-body">
-                                                    <p><strong>Interaction:</strong> 🟡 Mild antiplatelet effect</p>
-                                                    <p><strong>Layman Explanation:</strong> Foods like dark chocolate and berries may thin the blood a little but are generally safe in normal amounts.</p>
-                                                    <p><strong>Scientific Explanation:</strong> Flavonoids inhibit platelet aggregation and exhibit antioxidant properties; effects are usually mild but could slightly enhance bleeding risk if consumed in excess.</p>
-                                                    <p><strong>Clinical Advice:</strong> No significant restrictions, but advise moderation and inform providers if consuming large amounts or supplements.</p>
-                                                </div>
-                                            </div>
-
-                                            <!-- Grapefruit and Citrus Fruits -->
-                                            <div class="accordion">
-                                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                                    Grapefruit and Citrus Fruits <br>
-                                                    <small>(Grapefruit, Seville Oranges)</small>
-                                                    <span class="accordion-icon">+</span>
-                                                </div>
-                                                <div class="accordion-body">
-                                                    <p><strong>Interaction:</strong> ⚠️ Significant with DOACs (Apixaban, Rivaroxaban)</p>
-                                                    <p><strong>Layman Explanation:</strong> Grapefruit juice can increase levels of some blood thinners, raising the risk of bleeding.</p>
-                                                    <p><strong>Scientific Explanation:</strong> Grapefruit inhibits CYP3A4 and P-glycoprotein, increasing plasma concentration of DOACs metabolized via these pathways, potentiating anticoagulant effects.</p>
-                                                    <p><strong>Clinical Advice:</strong> Avoid grapefruit and related citrus while on DOACs.</p>
-                                                </div>
-                                            </div>
-
-                                            <!-- Alcohol -->
-                                            <div class="accordion">
-                                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                                    Alcohol <br>
-                                                    <small>(Beer, Wine, Spirits)</small>
-                                                    <span class="accordion-icon">+</span>
-                                                </div>
-                                                <div class="accordion-body">
-                                                    <p><strong>Interaction:</strong> ⚠️ Increases bleeding risk</p>
-                                                    <p><strong>Layman Explanation:</strong> Alcohol thins your blood and affects how your liver processes medications, increasing bleeding risk.</p>
-                                                    <p><strong>Scientific Explanation:</strong> Alcohol inhibits platelet function, disrupts coagulation, and interferes with CYP-mediated metabolism of anticoagulants, elevating bleeding risk.</p>
-                                                    <p><strong>Clinical Advice:</strong> Avoid or limit alcohol, especially during dose adjustments or initiation of therapy.</p>
-                                                </div>
-                                            </div>
-
-                                            <!-- Herbal Supplements -->
-                                            <div class="accordion">
-                                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                                    Herbal Supplements <br>
-                                                    <small>(Ginkgo Biloba, St. John's Wort, Garlic, Ginger, Turmeric)</small>
-                                                    <span class="accordion-icon">+</span>
-                                                </div>
-                                                <div class="accordion-body">
-                                                    <p><strong>Interaction:</strong> ⚠️ Variable, often increase bleeding risk or alter drug metabolism</p>
-                                                    <p><strong>Layman Explanation:</strong> Some herbs can thin your blood or change how medicines work, so always check with your doctor before using them.</p>
-                                                    <p><strong>Scientific Explanation:</strong> Ginkgo and garlic have antiplatelet properties; St. John’s Wort induces CYP3A4 and P-glycoprotein reducing drug levels; ginger and turmeric exhibit mild anticoagulant effects.</p>
-                                                    <p><strong>Clinical Advice:</strong> Inform healthcare providers about any herbal supplement use to avoid dangerous interactions.</p>
-                                                </div>
-                                            </div>
-
-                                            <!-- Dairy and Calcium-rich Foods -->
-                                            <div class="accordion">
-                                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                                    Dairy and Calcium-rich Foods <br>
-                                                    <small>(Milk, Cheese)</small>
-                                                    <span class="accordion-icon">+</span>
-                                                </div>
-                                                <div class="accordion-body">
-                                                    <p><strong>Interaction:</strong> ✅ Generally safe</p>
-                                                    <p><strong>Layman Explanation:</strong> Dairy products don’t significantly affect anticoagulant medications.</p>
-                                                    <p><strong>Scientific Explanation:</strong> No significant pharmacokinetic or pharmacodynamic interactions noted with typical dairy intake.</p>
-                                                    <p><strong>Clinical Advice:</strong> No restrictions needed.</p>
-                                                </div>
-                                            </div>
-
-                                            <!-- Other Foods -->
-                                            <div class="accordion">
-                                                <div class="accordion-header" onclick="toggleAccordion(this)">
-                                                    Other Foods <br>
-                                                    <small>(Chocolate, Nuts, Eggs, Meat)</small>
-                                                    <span class="accordion-icon">+</span>
-                                                </div>
-                                                <div class="accordion-body">
-                                                    <p><strong>Interaction:</strong> 🟡 Mild caution with nuts and chocolate</p>
-                                                    <p><strong>Layman Explanation:</strong> Nuts and chocolate have mild blood-thinning effects; large amounts may increase bleeding risk.</p>
-                                                    <p><strong>Scientific Explanation:</strong> Flavonoids and vitamin E in nuts and chocolate exhibit mild antiplatelet effects; moderate consumption is generally safe.</p>
-                                                    <p><strong>Clinical Advice:</strong> Moderate intake is safe; avoid excessive consumption especially if on dual antiplatelet or anticoagulant therapy.</p>
-                                                </div>
-                                            </div>
-
                                         </div>
 
-                                        <!-- SIDE EFFECTS & CONTRAINDICATIONS TAB -->
-                                        <div id="sideeffects-anticoag" class="tab-content">
-                                            <h3>Common Side Effects</h3>
-                                            <ul>
-                                                <li>Bleeding (minor bruising to severe hemorrhage)</li>
-                                                <li>Gastrointestinal upset (nausea, dyspepsia, bleeding)</li>
-                                                <li>Allergic reactions (rash, itching)</li>
-                                                <li>Thrombocytopenia (low platelets, rare but serious)</li>
-                                                <li>Liver enzyme elevation (monitor liver function tests)</li>
-                                            </ul><br>
-
-                                            <h3>Serious Risks & Contraindications</h3>
-                                            <ul>
-                                                <li>Active bleeding or hemorrhagic disorders</li>
-                                                <li>Severe liver or kidney impairment (dose adjustments or avoidance needed)</li>
-                                                <li>Pregnancy and breastfeeding (warfarin contraindicated in pregnancy)</li>
-                                                <li>Recent surgery or trauma increasing bleeding risk</li>
-                                                <li>Hypersensitivity to any drug component</li>
-                                            </ul>
+                                        <div class="accordion">
+                                            <div class="accordion-header" onclick="toggleAccordion(this)">
+                                                Herbal Supplements <br><small>(St. John's Wort, Ginseng, Ginkgo)</small>
+                                                <span class="accordion-icon">+</span>
+                                            </div>
+                                            <div class="accordion-body">
+                                                <p><strong>Interaction:</strong> ⚠️ May alter drug levels or increase bleeding</p>
+                                                <p><strong>Layman Explanation:</strong> Some herbs can increase or decrease the effects of anticoagulants.</p>
+                                                <p><strong>Scientific Explanation:</strong> Induction or inhibition of CYP enzymes and P-glycoprotein transporters can alter drug metabolism or enhance bleeding risk.</p>
+                                                <p><strong>Clinical Advice:</strong> Avoid unregulated supplements unless cleared by a healthcare provider.</p>
+                                            </div>
                                         </div>
+                                    </div>
 
-                                        <!-- PATIENT ADVICE TAB -->
-                                        <div id="advice-anticoag" class="tab-content">
-                                            <ul>
-                                                <li>💊 Take anticoagulants and antiplatelets exactly as prescribed; do not skip or double doses.</li>
-                                                <li>🩸 Report any unusual bleeding, bruising, or blood in urine/stool immediately.</li>
-                                                <li>🥗 Maintain a consistent intake of vitamin K-containing foods if on warfarin to avoid fluctuations in drug effect.</li>
-                                                <li>🍷 Avoid or limit alcohol consumption to reduce bleeding risk.</li>
-                                                <li>💡 Inform healthcare providers before starting or stopping any new medications or supplements, including herbal remedies.</li>
-                                                <li>🕒 Be aware of medication half-life and dosing schedules; warfarin requires regular blood monitoring (INR tests).</li>
-                                                <li>🧬 Inform your doctor about any kidney or liver disease, as dose adjustments may be necessary.</li>
-                                                <li>⚠️ Do not stop anticoagulants suddenly without medical advice; this can increase risk of clots.</li>
-                                            </ul>
-                                        </div>
+                                    <!-- SIDE EFFECTS & CONTRAINDICATIONS -->
+                                    <div id="sideeffects-anticoagulant" class="tab-content">
+                                        <h3>Common Side Effects</h3>
+                                        <ul>
+                                            <li>Bleeding (nosebleeds, gum bleeding, heavy menstruation, GI bleeding)</li>
+                                            <li>Bruising easily</li>
+                                            <li>Fatigue, dizziness (due to blood loss)</li>
+                                            <li>GI upset (dabigatran-specific)</li>
+                                        </ul><br>
+                                        <h3>Serious Risks & Contraindications</h3>
+                                        <ul>
+                                            <li>Active bleeding or high bleeding risk</li>
+                                            <li>Recent major surgery or trauma</li>
+                                            <li>Severe liver disease</li>
+                                            <li>Pregnancy (especially warfarin)</li>
+                                            <li>Mechanical heart valves (some DOACs not approved)</li>
+                                        </ul>
+                                    </div>
 
-                                        <!-- MECHANISM OF ACTION TAB -->
-                                        <div id="moa-anticoag" class="tab-content">
-                                            <h3>Mechanism of Action</h3>
+                                    <!-- PATIENT ADVICE -->
+                                    <div id="advice-anticoagulant" class="tab-content">
+                                        <ul>
+                                            <li>🧪 If on warfarin, get regular INR blood tests to monitor effectiveness.</li>
+                                            <li>🥗 Keep your intake of green leafy vegetables consistent — don’t avoid them, but don’t binge either.</li>
+                                            <li>🩸 Report any signs of unusual bleeding (e.g., black stools, prolonged bleeding) immediately.</li>
+                                            <li>💊 Take your anticoagulant at the same time every day — missing doses can increase stroke or clot risk.</li>
+                                            <li>🧾 Inform your doctor before starting/stopping any medications or supplements.</li>
+                                            <li>✈️ If traveling, carry your medication and an alert card indicating you're on a blood thinner.</li>
+                                        </ul>
+                                    </div>
 
-                                            <p><strong>Layman Explanation:</strong></p>
-                                            <p>Anticoagulants and antiplatelets help prevent harmful blood clots by either slowing down the body's clotting proteins or by stopping platelets (small blood cells) from sticking together. This keeps blood flowing smoothly and prevents blockages.</p>
+                                    <!-- MECHANISM OF ACTION -->
+                                    <div id="moa-anticoagulant" class="tab-content">
+                                        <h3>Mechanism of Action</h3>
 
-                                            <p><strong>Scientific Explanation:</strong></p>
-                                            <p>
-                                                <strong>Vitamin K antagonists (Warfarin):</strong> Inhibit vitamin K epoxide reductase complex 1, preventing recycling of vitamin K and reducing activation of clotting factors II, VII, IX, and X.<br>
-                                                <strong>Direct Oral Anticoagulants (DOACs):</strong> Include direct thrombin inhibitors (dabigatran) and direct factor Xa inhibitors (apixaban, rivaroxaban, edoxaban). They inhibit key enzymes in the coagulation cascade, preventing fibrin clot formation.<br>
-                                                <strong>Antiplatelets:</strong> Aspirin irreversibly inhibits cyclooxygenase-1 (COX-1), blocking thromboxane A2 synthesis and platelet aggregation. Clopidogrel and ticagrelor block P2Y12 ADP receptors on platelets, reducing platelet activation.<br>
-                                                <strong>Pharmacokinetics:</strong> Warfarin is highly protein bound (>95%) with a long half-life (~40h); DOACs have shorter half-lives (5-17h), variable renal clearance. Antiplatelet effects vary by drug and irreversible/reversible binding.
-                                            </p>
-                                        </div>
+                                        <p><strong>Layman Explanation:</strong></p>
+                                        <p>Anticoagulants prevent harmful blood clots by interrupting the body’s clotting process. They don’t dissolve existing clots but help stop new ones from forming.</p>
+
+                                        <p><strong>Scientific Explanation:</strong></p>
+                                        <p>
+                                            <strong>Warfarin:</strong> Inhibits vitamin K epoxide reductase, reducing synthesis of clotting factors II, VII, IX, and X.<br>
+                                            <strong>DOACs (Apixaban, Rivaroxaban, Edoxaban):</strong> Directly inhibit Factor Xa, preventing thrombin generation.<br>
+                                            <strong>Dabigatran:</strong> Directly inhibits thrombin (Factor IIa), blocking the conversion of fibrinogen to fibrin.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -311,32 +218,44 @@
             <!--closing off the hero section-->
         </div>
     </div>
-    <div class="profileModal dynamic-profileModal-content" id="profileModal-anticoag">
+    <div class="profileModal dynamic-profileModal-content" id="profileModal-anticoagulant">
         <div class="profileModal-content">
             <span class="profileModal-close" onclick="closeprofileModal(this)">
-            <span class="close-styling-class">×</span>
+                <span class="close-styling-class">×</span>
             </span>
-            <h3>🧪 Scientific Background: Anticoagulants & Antiplatelets</h3><br>
+            <h3>🧪 Scientific Background: Anticoagulants</h3><br>
 
             <p><strong>Drug Classes:</strong></p>
             <ul>
-                <li><strong>Anticoagulants:</strong> Vitamin K antagonists (Warfarin)</li>
-                <li><strong>Direct Oral Anticoagulants (DOACs):</strong> Factor Xa inhibitors (Apixaban, Rivaroxaban, Edoxaban), Thrombin inhibitors (Dabigatran)</li>
-                <li><strong>Antiplatelets:</strong> COX-1 inhibitors (Aspirin), ADP receptor blockers (Clopidogrel, Ticagrelor)</li>
+                <li><strong>Vitamin K Antagonists (VKAs):</strong> Warfarin</li>
+                <li><strong>Direct Oral Anticoagulants (DOACs):</strong> 
+                    <ul>
+                        <li><strong>Factor Xa Inhibitors:</strong> Apixaban, Rivaroxaban, Edoxaban</li>
+                        <li><strong>Thrombin Inhibitor:</strong> Dabigatran</li>
+                    </ul>
+                </li>
             </ul><br>
 
             <p><strong>Pharmacokinetics Summary:</strong></p>
             <ul>
-                <li><strong>Warfarin:</strong> Oral bioavailability ~100%, highly protein bound (>95%), metabolized by CYP2C9 and CYP3A4, half-life ~40 hours</li>
-                <li><strong>DOACs:</strong> Variable bioavailability (50-80%), partial renal clearance (dabigatran ~80%, apixaban ~27%), half-life 5–17 hours</li>
-                <li><strong>Antiplatelets:</strong> 
-                    - Aspirin irreversibly inhibits platelets for 7–10 days<br>
-                    - Clopidogrel is a prodrug activated by CYP2C19<br>
-                    - Ticagrelor is an active drug with reversible inhibition
-                </li>
+                <li><strong>Warfarin:</strong> Oral bioavailability ~100%; highly protein-bound (>95%); metabolized by CYP2C9; half-life ~36–42 hours; narrow therapeutic index; monitored by INR.</li>
+                <li><strong>Apixaban:</strong> Oral; half-life ~12 hours; metabolized by CYP3A4 and P-gp substrate; renal & fecal excretion.</li>
+                <li><strong>Rivaroxaban:</strong> Oral; half-life ~5–9 hrs (young), 11–13 hrs (elderly); taken with food; hepatic and renal clearance.</li>
+                <li><strong>Edoxaban:</strong> Oral; half-life ~10–14 hours; minimal CYP metabolism; ~50% renal clearance.</li>
+                <li><strong>Dabigatran:</strong> Prodrug; hydrolyzed after oral absorption; half-life ~12–17 hours; ~80% renal excretion; requires acidic environment for absorption.</li>
+            </ul><br>
+
+            <p><strong>Clinical Considerations:</strong></p>
+            <ul>
+                <li><strong>Monitoring:</strong> Warfarin requires INR checks; DOACs generally do not.</li>
+                <li><strong>Reversal Agents:</strong> Vitamin K (warfarin), Andexanet alfa (Factor Xa inhibitors), Idarucizumab (dabigatran).</li>
+                <li><strong>Dosing Frequency:</strong> Most DOACs are once or twice daily; warfarin dosing individualized based on INR.</li>
             </ul>
+
+            <p><em>Note:</em> Anticoagulant choice depends on clinical scenario (e.g., atrial fibrillation, VTE), renal function, patient age, bleeding risk, and drug interactions.</p>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
