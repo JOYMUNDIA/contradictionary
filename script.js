@@ -15,6 +15,24 @@ closeBtn.addEventListener('click', () => {
     closeBtn.style.display = 'none';    // Hide ✖
 });
 
+// Close menu on link click inside sidenav
+document.querySelectorAll('.sidenav a').forEach(link => {
+  link.addEventListener('click', () => {
+    sidenav.classList.remove('open');
+    menuToggle.style.display = 'block';
+    closeBtn.style.display = 'none';
+  });
+});
+
+//This allows the dropdown to persist when clicked and toggle visibility on second click.
+document.querySelectorAll('.dropdown-toggle').forEach(button => {
+  button.addEventListener('click', () => {
+    const dropdown = button.closest('.dropdown');
+    dropdown.classList.toggle('open');
+  });
+});
+
+
 
 // Hero section radio button selection
 document.addEventListener('DOMContentLoaded', function () {

@@ -14,7 +14,16 @@
 
     <nav id="sidenav" class="sidenav">
         <ul>
-            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <button class="dropdown-toggle">
+                    <span>Home</span>
+                    <span class="chevron">▾</span>
+                </button>
+                <ul class="dropdown-content">
+                    <li><a href="index.html#foodSearchinput">🔍︎ &nbsp;Search bar<br>(🍔 Search by Food)</a></li>
+                    <li><a href="index.html#medSearchinput">🔍︎ &nbsp;Search bar<br>(💊 Search by Meds)</a></li>
+                </ul>
+            </li>
             <li><a href="#contraindications">Common Contraindications</a></li>
             <li><a href="#search">Search Criteria</a></li>
             <li><a href="#footer">Footer</a></li>
@@ -23,7 +32,7 @@
 
     <!-- CLOSE BUTTON (Only visible when menu is open) -->
     <button id="close-btn" aria-label="Close menu">✖</button>
-    
+
     <!-- SIDENAV END -->
 
     <div class="background">

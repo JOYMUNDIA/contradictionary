@@ -10,6 +10,10 @@ body, html {
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ==== SIDENAV ==== */
 
 /* === FLOATING MENU BUTTON === */
@@ -41,7 +45,7 @@ body, html {
 
 #close-btn {
   top: 2px;
-  left: 250px; /* sidenav width (250px) + margin (0px) */
+  left: 220px; /* sidenav width (250px) + margin (0px) */
   background: linear-gradient(-45deg, rgba(42,31,25,1) 0%, rgba(85,63,50,1) 51%, rgba(206,188,155,1) 100%);
   border: none;
   display: none; /* Only show when sidenav is open */
@@ -80,7 +84,8 @@ body, html {
 }
 
 .sidenav li {
-  border-bottom: 1px solid rgba(85,63,50,1);
+  /*border-bottom: 1px solid rgba(85,63,50,1);*/
+  border-bottom: 1px solid rgba(206,188,155,1);
   font-size: 1.3rem;
 }
 
@@ -98,6 +103,83 @@ body, html {
   background: linear-gradient(135deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
   color: #fff;
 }
+
+/* Dropdown container */
+.sidenav .dropdown {
+  position: relative;
+}
+
+/* Style the dropdown toggle button */
+.dropdown-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: black;
+  padding: 1rem;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.dropdown-toggle:hover {
+  background: linear-gradient(135deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+  color: white;
+}
+
+/* Chevron styles */
+.dropdown-toggle .chevron {
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: black;
+  font-size: 2.2rem;
+}
+
+.dropdown-toggle:hover .chevron {
+  color: white;
+}
+
+/* Dropdown content hidden by default */
+.dropdown-content {
+  display: none;
+  padding-left: 1rem;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* When parent has 'open', show content and rotate chevron */
+.dropdown.open .dropdown-content {
+  display: block;
+}
+
+.dropdown.open .chevron {
+  transform: rotate(180deg);
+}
+
+/* Hide dropdown by default */
+.sidenav .dropdown-content {
+  display: none;
+  padding-left: 1rem;
+  background-color: rgba(255, 255, 255, 0.8); /* Light background inside dropdown */
+}
+
+/* Show dropdown when parent is hovered */
+.sidenav .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Links inside dropdown */
+.sidenav .dropdown-content li a {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  color: #222;
+}
+
+.sidenav .dropdown-content li a:hover {
+  background: linear-gradient(135deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+  color: white;
+}
+
 
 /* =========== Common CSS Styles ============= */
 .background, 
