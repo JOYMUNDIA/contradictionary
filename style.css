@@ -80,7 +80,7 @@ body, html {
 }
 
 .sidenav li {
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid rgba(85,63,50,1);
   font-size: 1.3rem;
 }
 
@@ -94,7 +94,9 @@ body, html {
 }
 
 .sidenav a:hover {
-  background-color: #444;
+  /*background-color: #444;*/
+  background: linear-gradient(135deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+  color: #fff;
 }
 
 /* =========== Common CSS Styles ============= */
