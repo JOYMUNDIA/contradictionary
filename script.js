@@ -1,3 +1,21 @@
+//Sidebar Nav logic
+const menuToggle = document.getElementById('menu-toggle');
+const closeBtn = document.getElementById('close-btn');
+const sidenav = document.getElementById('sidenav');
+
+menuToggle.addEventListener('click', () => {
+    sidenav.classList.add('open');
+    menuToggle.style.display = 'none'; // Hide ☰
+    closeBtn.style.display = 'block';  // Show ✖
+});
+
+closeBtn.addEventListener('click', () => {
+    sidenav.classList.remove('open');
+    menuToggle.style.display = 'block'; // Show ☰
+    closeBtn.style.display = 'none';    // Hide ✖
+});
+
+
 // Hero section radio button selection
 document.addEventListener('DOMContentLoaded', function () {
   const buttons = document.querySelectorAll('.hero-button-section .toggle-button');

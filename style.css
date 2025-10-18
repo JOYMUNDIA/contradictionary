@@ -10,6 +10,93 @@ body, html {
   height: 100%;
 }
 
+/* ==== SIDENAV ==== */
+
+/* === FLOATING MENU BUTTON === */
+#menu-toggle,
+#close-btn {
+  position: fixed;
+  top: 20px;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10000; /* stays on top */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#menu-toggle{
+  left: 20px;
+}
+
+#menu-toggle:hover {
+  background: linear-gradient(-45deg, rgba(42,31,25,1) 0%, rgba(85,63,50,1) 51%, rgba(206,188,155,1) 100%);
+  transform: scale(1.1);
+}
+
+#close-btn {
+  top: 2px;
+  left: 250px; /* sidenav width (250px) + margin (0px) */
+  background: linear-gradient(-45deg, rgba(42,31,25,1) 0%, rgba(85,63,50,1) 51%, rgba(206,188,155,1) 100%);
+  border: none;
+  display: none; /* Only show when sidenav is open */
+  z-index: 10001;
+}
+
+#close-btn:hover {
+  background: linear-gradient(135deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
+  transform: scale(1.1);
+}
+
+
+/* === SIDENAV STYLES === */
+.sidenav {
+  position: fixed;
+  left: -260px;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  /*background-color: rgba(85,63,50,1);*/
+  background-image: url(images/background.jpg);
+  background-size: cover;
+  transition: left 0.3s ease;
+  z-index: 9999;
+  padding-top: 60px;
+}
+
+.sidenav.open {
+  left: 0;
+}
+
+.sidenav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidenav li {
+  border-bottom: 1px solid #444;
+  font-size: 1.3rem;
+}
+
+.sidenav a {
+  display: block;
+  padding: 1rem;
+  /*color: white;*/
+  color: #000;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.sidenav a:hover {
+  background-color: #444;
+}
+
 /* =========== Common CSS Styles ============= */
 .background, 
 .card-row-common-contraindication,
@@ -228,7 +315,8 @@ body, html {
 }
 
 .header-bar,
-.profile-card .tab.active{
+.profile-card .tab.active,
+#menu-toggle{
   background: rgba(206,188,155,1);
   background: -moz-linear-gradient(-45deg, rgba(206,188,155,1) 0%, rgba(85,63,50,1) 51%, rgba(42,31,25,1) 100%);
   background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(206,188,155,1)), color-stop(51%, rgba(85,63,50,1)), color-stop(100%, rgba(42,31,25,1)));

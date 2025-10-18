@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contradictionary meds</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contradictionary meds</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="background">
+
+    <!-- SIDENAV START -->
+    <!-- MENU BUTTON ONLY -->
+    <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+
+    <nav id="sidenav" class="sidenav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#contraindications">Common Contraindications</a></li>
+            <li><a href="#search">Search Criteria</a></li>
+            <li><a href="#footer">Footer</a></li>
+        </ul>
+    </nav>
+
+    <!-- CLOSE BUTTON (Only visible when menu is open) -->
+    <button id="close-btn" aria-label="Close menu">✖</button>
+    
+    <!-- SIDENAV END -->
+
+    <div class="background">
         <div class="main-container dynamic-category">
             <!-- Black Header -->
             <div class="header-bar">
